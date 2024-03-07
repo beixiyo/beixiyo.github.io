@@ -36,6 +36,8 @@ jobs:
       - name: Move built files to root directory and clean up
         run: |
           mv ./docs/.vitepress/dist/* ./
+          mv ./docs/type-doc ./
+          rm -rf ./docs
 
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1

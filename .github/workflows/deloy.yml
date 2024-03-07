@@ -30,6 +30,7 @@ jobs:
       - name: Move built files to root directory and clean up
         run: |
           mv ./docs/.vitepress/dist/* ./
+          rm -rf ./type-doc
           mv ./docs/type-doc ./
           rm -rf ./node_modules
           rm -rf ./docs

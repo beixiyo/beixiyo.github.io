@@ -6,7 +6,7 @@ title: 首页
 
 hero:
   name: '@jl-org/tool'
-  text: 仅用于测试
+  text: 工具库
   tagline: Test Tag
   actions:
     - theme: brand

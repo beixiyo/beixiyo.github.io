@@ -7,7 +7,7 @@ export default defineConfig({
     description: "this is @jl-org/tool api website",
     lang: "zh-CN",
     themeConfig: {
-        /** 这里根路径指的是 /doc */
+        /** 这里根路径指的是 /docs */
         nav: [
             { text: "Home", link: "/type-doc/modules.md" },
             { text: "Animate", link: "/type-doc/modules/animation.md" },

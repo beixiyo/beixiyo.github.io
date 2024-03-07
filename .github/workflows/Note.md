@@ -38,6 +38,7 @@ jobs:
           mv ./docs/.vitepress/dist/* ./
           mv ./docs/type-doc ./
           rm -rf ./docs
+          rm -rf ./node_modules
 
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1

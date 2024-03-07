@@ -27,22 +27,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: pnpm
+          cache: npm
 
-      - run: pnpm ci
+      - run: npm ci
       - name: Build
-        run: pnpm run docs:build
+        run: npm run docs:build
 
       - name: Move built files to root directory and clean up
         run: |
-          mv docs/.vitepress/dist/* ./
-          rm -rf docs/.vitepress/dist
+          mv ./docs/.vitepress/dist/**/* ./
 
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./
-          
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1

@@ -31,12 +31,12 @@ jobs:
         run: |
           rm -rf guide reference
           mv doc/.vitepress/dist/* ./
-          rm -rf docs/.vitepress/dist
+          rm -rf doc/.vitepress/dist
 
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/.vitepress/dist
+          path: doc/.vitepress/dist
 
       - name: Deploy
         id: deployment

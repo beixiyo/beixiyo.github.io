@@ -87,4 +87,11 @@ git push -u origin main
 
 推送到远端仓库之后，github actions 就会根据我们的工作流配置文件自动的执行任务流，你可以在 actions 面板看到对应的执行进度
 
-点击 【pages build and deployment】，里面就可以看到部署的网站链接
+点击【pages build and deployment】，里面就可以看到部署的网站链接
+
+---
+
+注意有时候你可能会面临这么一种情况，已经提交了新的任务流文件，在 Actions 面板，看到所有的任务也已经运行完毕了，但是仍然是 404
+
+- 清除一下浏览器的缓存
+- 重新触发工作流

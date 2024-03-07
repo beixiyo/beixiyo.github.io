@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: API 文档
-      link: ./type-doc/modules.md
+      link: /type-doc/modules.md
     - theme: alt
       text: Animate API
-      link: ./type-doc/modules/animation.md
+      link: /type-doc/modules/animation.md
 
 features:
   - icon: 🛠️

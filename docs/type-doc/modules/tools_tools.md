@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Classes
-
-- [EventBus](../classes/tools_tools.EventBus.md)
-
 ### Functions
 
 - [arrToChunk](tools_tools.md#arrtochunk)
@@ -67,7 +63,7 @@
 
 #### Defined in
 
-tools/tools.ts:154
+tools/tools.ts:158
 
 ___
 
@@ -89,7 +85,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:116
+tools/tools.ts:120
 
 ___
 
@@ -118,7 +114,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:167
+tools/tools.ts:171
 
 ___
 
@@ -156,7 +152,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:224
+tools/tools.ts:228
 
 ___
 
@@ -181,7 +177,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:194
+tools/tools.ts:198
 
 ___
 
@@ -263,7 +259,8 @@ ___
 
 ▸ **deepCompare**(`o1`, `o2`, `seen?`): `boolean`
 
-深度比较对象 `Map | Set`无法使用
+深度比较对象 `Map | Set`无法使用  
+支持循环引用比较
 
 #### Parameters
 
@@ -279,7 +276,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:76
+tools/tools.ts:79
 
 ___
 
@@ -316,7 +313,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:401
+tools/tools.ts:405
 
 ___
 
@@ -352,7 +349,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:360
+tools/tools.ts:364
 
 ___
 
@@ -411,7 +408,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:379
+tools/tools.ts:383
 
 ___
 
@@ -447,7 +444,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:341
+tools/tools.ts:345
 
 ___
 
@@ -474,7 +471,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:331
+tools/tools.ts:335
 
 ___
 
@@ -570,7 +567,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:296
+tools/tools.ts:300
 
 ___
 
@@ -593,7 +590,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:312
+tools/tools.ts:316
 
 ___
 
@@ -623,7 +620,7 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:274
+tools/tools.ts:278
 
 ___
 
@@ -648,7 +645,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:285
+tools/tools.ts:289
 
 ___
 
@@ -672,7 +669,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:250
+tools/tools.ts:254
 
 ___
 
@@ -740,4 +737,4 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:215
+tools/tools.ts:219

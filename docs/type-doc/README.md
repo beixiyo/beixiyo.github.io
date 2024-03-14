@@ -12,6 +12,12 @@ TypeScript编写的工具函数
 npm i @jl-org/tool
 ```
 
+## 文档地址
+> 其实不如看 *VSCode* 的代码提示方便。  
+鼠标悬浮在变量上即可查看，几乎所有地方我都写了文档注释  
+
+https://beixiyo.github.io/
+
 ## 包含如下类型工具
 - [各种常用工具](#各种常用工具)
 - [DOM](#dom)
@@ -20,6 +26,7 @@ npm i @jl-org/tool
 - [颜色处理](#颜色处理)
 - [一些数据结构，如：最小堆](#数据结构)
 - [动画处理](#动画处理)
+- [事件分发，如消息订阅](#事件分发)
 - [*is* 判断](#is-判断)
 - [canvas](#canvas)
 - [*Web* 小插件，如：客户端同步服务器更新](#web-小插件)
@@ -61,7 +68,10 @@ export declare function getSum<T>(arr: T[], handler?: (item: T) => number): numb
 /** 深拷贝 */
 export declare function deepClone<T>(data: T, map?: WeakMap<WeakKey, any>): any;
 
-/** 深度比较对象 `Map | Set`无法使用 */
+/**
+ * 深度比较对象 `Map | Set`无法使用
+ * 支持循环引用比较
+ */
 export declare function deepCompare(o1: any, o2: any, seen?: WeakMap<WeakKey, any>): boolean;
 
 /** 递归树拍平 */
@@ -178,28 +188,6 @@ export declare function filterKeys<T, K extends keyof T>(target: T, keys: K[]): 
  * @example excludeKeys(data, ['name'])
  */
 export declare function excludeKeys<T, K extends keyof T>(target: T, keys: K[]): Omit<T, Extract<keyof T, K>>;
-
-/** 消息订阅与派发 */
-export declare class EventBus {
-    eventMap: Map<string, Set<{
-        once?: boolean;
-        fn: Function;
-    }>>;
-    /** 订阅 */
-    on(eventName: string, fn: Function): void;
-    /** 订阅一次 */
-    once(eventName: string, fn: Function): void;
-    /** 发送 */
-    emit(eventName: string, ...args: any[]): void;
-    /**
-     * 取关
-     * @param eventName 空字符或者不传代表重置所有
-     * @param func 要取关的函数 为空取关该事件的所有函数
-     */
-    off(eventName?: string, func?: Function): void;
-    private subscribe;
-    private static genItem;
-}
 ```
 
 ## DOM
@@ -584,6 +572,65 @@ export declare class ATo {
 }
 ```
 
+## 事件分发
+```ts
+/** 消息订阅与派发 */
+export declare class EventBus {
+    /**
+     * 订阅
+     * @param eventName 事件名
+     * @param fn 接收函数
+     */
+    on(eventName: string, fn: Function): void;
+    /**
+     * 订阅一次
+     * @param eventName 事件名
+     * @param fn 接收函数
+     */
+    once(eventName: string, fn: Function): void;
+    /**
+     * 发送事件
+     * @param eventName 事件名
+     * @param args 不定参数
+     */
+    emit(eventName: string, ...args: any[]): void;
+    /**
+     * 取关
+     * @param eventName 空字符或者不传代表重置所有
+     * @param func 要取关的函数，为空取关该事件的所有函数
+     */
+    off(eventName?: string, func?: Function): void;
+}
+
+/**
+ * 事件频道，用于管理事件
+ * 可以批量触发，也可以单独触发
+ */
+export declare class Channel {
+    /**
+     * 添加监听
+     * @param actionType 类型
+     * @param func 函数
+     * @returns 删除监听的 **函数**
+     */
+    add(actionType: ActionType, func: Function): () => void;
+    /**
+     * 删除某个类型 或者 某个类型的具体函数
+     * @param actionType 类型
+     * @param func 具体函数，不传则删除所有
+     */
+    del(actionType: ActionType, func?: Function): void;
+    /**
+     * 触发某个类型
+     * @param actionType 类型
+     * @param args 不定参数
+     */
+    trigger(actionType: ActionType, ...args: any[]): void;
+}
+export type ActionType = string | symbol;
+
+```
+
 ## is 判断
 ```ts
 /** 判断是否能强转成数字 */
@@ -603,6 +650,26 @@ export declare const isSame: (a: any, b: any) => boolean;
 ## canvas
 ```ts
 /**
+ * 截取图片的一部分，返回 base64 | blob
+ */
+export declare function cutImg<T extends TransferType>(img: HTMLImageElement, resType: T, x?: number, y?: number, width?: number, height?: number, opts?: {
+    type?: string;
+    quality?: number;
+}): HandleImgReturn<T>;
+
+/**
+ * 压缩图片
+ * @param img 图片
+ * @param resType 需要返回的文件格式
+ * @param quality 压缩质量，默认 0.5
+ * @param mimeType 图片类型，默认 `image/webp`。`image/jpeg | image/webp` 才能压缩，
+ * @returns base64 | blob
+ */
+export declare function compressImg<T extends TransferType>(img: HTMLImageElement, resType: T, quality?: number, mimeType?: 'image/jpeg' | 'image/webp'): HandleImgReturn<T>;
+
+type HandleImgReturn<T extends TransferType> = T extends 'blob' ? Promise<Blob> : Promise<string>;
+
+/**
  * 根据半径和角度获取坐标
  * @param r 半径
  * @param deg 角度
@@ -613,9 +680,10 @@ export declare function calcCoord(r: number, deg: number): number[];
  * 创建一个指定宽高的画布
  * @param width 画布的宽度
  * @param height 画布的高度
+ * @param options 上下文配置
  * @returns 包含画布和上下文的对象
  */
-export declare function createCvs(width: number, height: number): {
+export declare function createCvs(width?: number, height?: number, options?: CanvasRenderingContext2DSettings): {
     cvs: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
 };
@@ -629,7 +697,7 @@ export declare function createCvs(width: number, height: number): {
  * @param width 图像区域宽度
  * @returns `RGBA`数组
  */
-export declare function getPixel(x: number, y: number, imgData: ImageData['data'], width: number): number[];
+export declare function getPixel(x: number, y: number, imgData: ImageData['data'], width: number): Pixel;
 
 /**
  * 美化 ctx.getImageData.data 属性
@@ -641,23 +709,6 @@ export declare function parseImgData(imgData: ImageData['data'], width: number, 
 
 /** 给 canvas 某个像素点填充颜色的函数 */
 export declare function fillPixel(ctx: CanvasRenderingContext2D, x: number, y: number, color: string): void;
-
-/**
- * 截取图片的一部分，返回 base64 | blob
- */
-export declare function cutImg<T extends TransferType>(img: HTMLImageElement, resType: T, x?: number, y?: number, width?: number, height?: number, opts?: {
-    type?: 'image/png' | 'image/jpeg' | 'image/webp';
-    quality?: number;
-}): HandleImgReturn<T>;
-
-/**
- * 压缩图片，`image/jpeg | image/webp` 才能压缩
- * @param img 图片
- * @param quality 压缩质量
- * @param resType 需要返回的文件格式
- * @returns base64 | blob
- */
-export declare function compressImg<T extends TransferType>(img: HTMLImageElement, resType: T, quality?: number): HandleImgReturn<T>;
 ```
 
 ## Web 小插件

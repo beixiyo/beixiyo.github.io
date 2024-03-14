@@ -35,7 +35,7 @@
 
 #### Defined in
 
-canvas/tools.ts:8
+canvas/tools.ts:10
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ▸ **compressImg**\<`T`\>(`img`, `resType`, `quality?`, `mimeType?`): `HandleImgReturn`\<`T`\>
 
-压缩图片，`image/jpeg | image/webp` 才能压缩
+压缩图片
 
 #### Type parameters
 
@@ -57,8 +57,8 @@ ___
 | :------ | :------ | :------ | :------ |
 | `img` | `HTMLImageElement` | `undefined` | 图片 |
 | `resType` | `T` | `undefined` | 需要返回的文件格式 |
-| `quality` | `number` | `.5` | 压缩质量 |
-| `mimeType?` | `string` | `undefined` | 图片类型 |
+| `quality` | `number` | `.5` | 压缩质量，默认 0.5 |
+| `mimeType` | ``"image/jpeg"`` \| ``"image/webp"`` | `'image/webp'` | 图片类型，默认 `image/webp`。`image/jpeg \| image/webp` 才能压缩， |
 
 #### Returns
 
@@ -74,7 +74,7 @@ ___
 
 ### createCvs
 
-▸ **createCvs**(`width`, `height`): `Object`
+▸ **createCvs**(`width?`, `height?`, `options?`): `Object`
 
 创建一个指定宽高的画布
 
@@ -82,8 +82,9 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `width` | `number` | 画布的宽度 |
-| `height` | `number` | 画布的高度 |
+| `width?` | `number` | 画布的宽度 |
+| `height?` | `number` | 画布的高度 |
+| `options?` | `CanvasRenderingContext2DSettings` | 上下文配置 |
 
 #### Returns
 
@@ -98,7 +99,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:22
+canvas/tools.ts:25
 
 ___
 
@@ -159,13 +160,13 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:80
+canvas/tools.ts:83
 
 ___
 
 ### getPixel
 
-▸ **getPixel**(`x`, `y`, `imgData`, `width`): `number`[]
+▸ **getPixel**(`x`, `y`, `imgData`, `width`): `Pixel`
 
 取出`canvas`用一维数组描述的颜色中 某个坐标的`RGBA`数组  
 注意坐标从 0 开始
@@ -181,13 +182,13 @@ ___
 
 #### Returns
 
-`number`[]
+`Pixel`
 
 `RGBA`数组
 
 #### Defined in
 
-canvas/tools.ts:40
+canvas/tools.ts:43
 
 ___
 
@@ -212,4 +213,4 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:63
+canvas/tools.ts:66

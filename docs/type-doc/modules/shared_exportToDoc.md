@@ -33,7 +33,9 @@
 | :------ | :------ | :------ |
 | `cardId` | `RegExp` | 身份证正则 |
 | `chinese` | `RegExp` | 中文正则 |
+| `numToLocaleString` | `RegExp` | 数字转千分位正则 **`Example`** ```ts "123456789".replace(Reg.numToLocaleString, ",") ``` |
 | `phone` | `RegExp` | 手机号正则 |
+| `pwd` | `RegExp` | 密码校验正则：必须包含数字、大小写字母、特殊字符，6-12 位 |
 | `rgb` | `RegExp` | rgb 颜色正则 |
 
 #### Defined in

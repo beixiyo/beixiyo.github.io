@@ -8,6 +8,7 @@
 
 - [animation](modules/animation.md)
 - [canvas](modules/canvas.md)
+- [channel](modules/channel.md)
 - [dataStructure](modules/dataStructure.md)
 - [plugins](modules/plugins.md)
 - [shared/exportToDoc](modules/shared_exportToDoc.md)

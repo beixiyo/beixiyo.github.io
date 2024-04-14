@@ -14,15 +14,17 @@ npm i @jl-org/tool
 
 ## 文档地址
 > 其实不如看 *VSCode* 的代码提示方便。  
-鼠标悬浮在变量上即可查看，几乎所有地方我都写了文档注释  
+
+**鼠标悬浮在变量上即可查看，几乎所有地方我都写了文档注释**
 
 https://beixiyo.github.io/
 
 ## 包含如下类型工具
 - [各种常用工具](#各种常用工具)
+- [网络请求工具，如最大并发，自动重试等](#网络请求工具)
 - [DOM](#dom)
 - [分时渲染函数，再多函数也不卡顿](#分时渲染函数)
-- [Media API](#media-api)
+- [Media API，如录屏、录音、文字语音互转](#media-api)
 - [颜色处理](#颜色处理)
 - [一些数据结构，如：最小堆](#数据结构)
 - [动画处理](#动画处理)
@@ -65,8 +67,26 @@ export declare function getRandomNum(min: number, max: number): number;
  */
 export declare function getSum<T>(arr: T[], handler?: (item: T) => number): number;
 
+/**
+ * 给定一个数组，根据 key 进行分组
+ * 分组内容默认放入数组中，你也可以指定为 `'+' | '-' | '*' | '/' | '**'` 进行相应的操作
+ *
+ * 你也可以把整个对象进行分组（设置 `operateKey` 为 `null`），放入到数组里。而不是进行 加减乘除 等操作
+ * @param data 要分组的数组
+ * @param key 要进行分组的 **键**
+ * @param operateKey 要操作的 **键**，填 `null` 则对整个对象进行分组，并且会把 `action` 设置为 `arr`
+ * @param action 操作行为，默认放入数组，你也可以进行相应的操作，`'+'` 为加法，`'-'` 为减法，`'*'` 为乘法，`'/'` 为除法，`'**'` 为乘方
+ * @param enableParseFloat 默认 false，当你指定 action 为数值操作时，是否使用 parseFloat，这会把 '10px' 也当成数字
+ * @param enableDeepClone 是否深拷贝，默认 false
+ * @example
+ * const input = [{ type: 'chinese', score: 10 }, { type: 'chinese', score: 100 }]
+ * groupBy(input, 'type', 'score') => [{ type: 'chinese', score: [10, 100] }]
+ * groupBy(input, 'type', null) => [ { type: 'chinese', children: [{ ... }] }, ... ]
+ */
+export declare function groupBy<T extends Record<BaseKey, any>>(data: T[], key: keyof T, operateKey: null | (keyof T), action?: 'arr' | '+' | '-' | '*' | '/' | '**', enableParseFloat?: boolean, enableDeepClone?: boolean): any[];
+
 /** 深拷贝 */
-export declare function deepClone<T>(data: T, map?: WeakMap<WeakKey, any>): any;
+export declare function deepClone<T>(data: T, map?: WeakMap<WeakKey, any>): T;
 
 /**
  * 深度比较对象 `Map | Set`无法使用
@@ -188,6 +208,23 @@ export declare function filterKeys<T, K extends keyof T>(target: T, keys: K[]): 
  * @example excludeKeys(data, ['name'])
  */
 export declare function excludeKeys<T, K extends keyof T>(target: T, keys: K[]): Omit<T, Extract<keyof T, K>>;
+```
+
+# 网络请求工具
+```ts
+/**
+ * 失败后自动重试请求
+ * @param task 任务数组
+ * @param count 重试次数
+ */
+export declare function retryReq<T>(task: () => Promise<T>, count?: number): Promise<T>;
+
+/**
+ * 并发任务数组 完成最大并发数后才会继续
+ * @param tasks 任务数组
+ * @param maxNum 最大并发数
+ */
+export declare function concurrentTask<T>(tasks: () => Promise<T>[], maxNum?: number): Promise<T[]>;
 ```
 
 ## DOM
@@ -338,16 +375,14 @@ export declare class Recorder {
      * @param onFinish 录音完成的回调
      */
     constructor(onFinish?: (audioUrl: string, chunk: Blob[]) => void);
-
     init(): Promise<string | undefined>;
 
     /** 开始录音 */
-    start(): void;
+    start(): this;
     /** 停止录音，停止后，回调给构造器传递的 `onFinish` */
-    stop(): void;
-
+    stop(): this;
     /** 播放刚刚的录音，或者指定 base64 的录音 */
-    play(url?: string): void;
+    play(url?: string): this;
 }
 
 /**
@@ -363,30 +398,30 @@ export declare class Speaker {
     voiceArr: SpeechSynthesisVoice[];
     /** 内部操作的实例对象 */
     speak: SpeechSynthesisUtterance;
-
+ 
     constructor(txt?: string, volume?: number, lang?: string);
 
     /**
      * 播放声音
      * @param onEnd 声音播放完毕的回调
      */
-    play(onEnd?: (e: SpeechSynthesisEvent) => void): void;
+    play(onEnd?: (e: SpeechSynthesisEvent) => void): this;
     /** 停止 */
-    stop(): void;
+    stop(): this;
     /** 暂停 */
-    pause(): void;
+    pause(): this;
     /** 继续 */
-    resume(): void;
+    resume(): this;
     /** 设置播放文本 */
-    setText(txt?: string): void;
+    setText(txt?: string): this;
     /** 设置音量 */
-    setVolume(volume?: number): void;
+    setVolume(volume?: number): this;
     /** 设置声音类型 */
-    setVoice(index: number): void;
+    setVoice(index: number): this;
     /** 设置语速 */
-    setRate(rate: number): void;
+    setRate(rate: number): this;
     /** 设置音高 */
-    setPitch(pitch: number): void;
+    setPitch(pitch: number): this;
 }
 
 /**
@@ -398,19 +433,28 @@ export declare class Speaker {
  * speakTxtBtn.onclick = () => speakToTxt.start()
  */
 export declare class SpeakToTxt {
-
     /**
      * 调用 start 方法开始录音，默认中文识别
      * @param onResult 返回结果的回调
      * @param opts 配置项
      */
     constructor(onResult: OnResult, opts?: SpeakToTxtOpts);
-
     /** 开始识别 */
-    start(): void;
+    start(): this;
     /** 停止识别 */
-    stop(): void;
+    stop(): this;
 }
+
+type SpeakToTxtOpts = {
+    onstart?: (ev: Event) => void;
+    onEnd?: (ev: Event) => void;
+    /** 是否在用户停止说话后继续识别，默认 `false` */
+    continuous?: boolean;
+    /** 是否返回临时结果，默认 `false` */
+    interimResults?: boolean;
+    lang?: string;
+};
+type OnResult = (data: string, e: SpeechRecognitionEvent) => void;
 
 /**
  * 开启摄像头
@@ -427,7 +471,6 @@ export declare const screenCAP: (fileName?: string) => Promise<void>;
 ```ts
 /** 获取十六进制随机颜色 */
 export declare function getColor(): string;
-
 /** 随机十六进制颜色数组 */
 export declare function getColorArr(size: number): string[];
 
@@ -436,7 +479,7 @@ export declare function getColorArr(size: number): string[];
   - #000 => #000000
   - #000f => #000000ff
  */
-export declare function hexColorToRaw(color: string): string | void;
+export declare function hexColorToRaw(color: string): string;
 
 /** 十六进制 转 RGB */
 export declare function hexToRGB(color: string): string;
@@ -450,7 +493,7 @@ export declare function rgbToHex(color: string): string;
  * @param strength 淡化的强度
  * @returns 返回 RGBA 类似如下格式的颜色 `rgba(0, 0, 0, 0.1)`
  */
-export declare function lightenColor(color: string, strength?: number): string | void;
+export declare function lightenColor(color: string, strength?: number): string;
 
 /**
  * 颜色添加透明度 支持`rgb`和十六进制
@@ -537,11 +580,30 @@ export declare function genTimeFunc(name?: TimeFunc): (v: number) => number;
 
 /**
  * 一个动画类 能够链式调用; 请先调用`start`函数, 参数和`createAnimationByTime`一致
- * @example
- * const aTo = new aTo()
- * aTo
- *     .start(...)
- *     .next(...)
+@example
+const aTo = new ATo()
+aTo
+    .start(
+        div1.style,
+        {
+            left: '200px',
+            top: '200px',
+            opacity: '0.1'
+        },
+        1000
+    )
+    .next(
+        div2.style,
+        {
+            translateX: '50vw',
+            translateY: '300px',
+        },
+        2000,
+        {
+            transform: true,
+            timeFunc: 'backInOut'
+        }
+    )
  */
 export declare class ATo {
 
@@ -603,8 +665,7 @@ export declare class EventBus {
 }
 
 /**
- * 事件频道，用于管理事件
- * 可以批量触发，也可以单独触发
+ * 事件频道，用于批量触发事件
  */
 export declare class Channel {
     /**
@@ -613,35 +674,39 @@ export declare class Channel {
      * @param func 函数
      * @returns 删除监听的 **函数**
      */
-    add(actionType: ActionType, func: Function): () => void;
+    add(actionType: BaseKey, func: Function): () => void;
     /**
      * 删除某个类型 或者 某个类型的具体函数
      * @param actionType 类型
      * @param func 具体函数，不传则删除所有
      */
-    del(actionType: ActionType, func?: Function): void;
+    del(actionType: BaseKey, func?: Function): void;
     /**
      * 触发某个类型
      * @param actionType 类型
      * @param args 不定参数
      */
-    trigger(actionType: ActionType, ...args: any[]): void;
+    trigger(actionType: BaseKey, ...args: any[]): void;
 }
-export type ActionType = string | symbol;
 
 ```
 
 ## is 判断
 ```ts
-/** 判断是否能强转成数字 */
-export declare function isPureNum(value: string | number): boolean;
+/**
+ * 判断是否能强转成数字
+ * @param value 判断的值
+ * @param enableParseFloat 默认 false，是否使用 parseFloat，这会把 '10px' 也当成数字
+ */
+export declare function isPureNum(value: string | number, enableParseFloat?: boolean): boolean;
 
-export declare const isStr: (s: any) => boolean;
-export declare const isNum: (s: any) => boolean;
-export declare const isBool: (s: any) => boolean;
-export declare const isFn: (s: any) => boolean;
-export declare const isObj: (s: any) => boolean;
-export declare const isArr: (s: any) => boolean;
+export declare const isStr: (data: any) => data is string;
+export declare const isNum: (data: any) => data is number;
+export declare const isBool: (data: any) => data is boolean;
+
+export declare const isFn: (data: any) => data is Function;
+export declare const isObj: (data: any) => data is object;
+export declare const isArr: <T>(data: any) => data is T[];
 
 /** Object.is */
 export declare const isSame: (a: any, b: any) => boolean;

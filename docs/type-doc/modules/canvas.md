@@ -35,7 +35,7 @@
 
 #### Defined in
 
-canvas/tools.ts:10
+canvas/tools.ts:9
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:25
+canvas/tools.ts:27
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:83
+canvas/tools.ts:85
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:43
+canvas/tools.ts:45
 
 ___
 
@@ -213,4 +213,4 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:66
+canvas/tools.ts:68

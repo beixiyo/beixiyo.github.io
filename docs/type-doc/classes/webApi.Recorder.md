@@ -94,7 +94,7 @@ ___
 
 ### play
 
-▸ **play**(`url?`): `void`
+▸ **play**(`url?`): [`Recorder`](webApi.Recorder.md)
 
 播放刚刚的录音，或者指定 base64 的录音
 
@@ -106,23 +106,23 @@ ___
 
 #### Returns
 
-`void`
+[`Recorder`](webApi.Recorder.md)
 
 #### Defined in
 
-webApi/Recorder.ts:70
+webApi/Recorder.ts:73
 
 ___
 
 ### start
 
-▸ **start**(): `void`
+▸ **start**(): [`Recorder`](webApi.Recorder.md)
 
 开始录音
 
 #### Returns
 
-`void`
+[`Recorder`](webApi.Recorder.md)
 
 #### Defined in
 
@@ -132,14 +132,14 @@ ___
 
 ### stop
 
-▸ **stop**(): `void`
+▸ **stop**(): [`Recorder`](webApi.Recorder.md)
 
 停止录音，停止后，回调给构造器传递的 `onFinish`
 
 #### Returns
 
-`void`
+[`Recorder`](webApi.Recorder.md)
 
 #### Defined in
 
-webApi/Recorder.ts:63
+webApi/Recorder.ts:65

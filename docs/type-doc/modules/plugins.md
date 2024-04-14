@@ -20,7 +20,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `opts` | `Opts` |
+| `opts` | `AutoUpdateOpts` |
 
 #### Returns
 

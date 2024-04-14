@@ -4,8 +4,7 @@
 
 [channel](../modules/channel.md).Channel
 
-事件频道，用于管理事件
-可以批量触发，也可以单独触发
+事件频道，用于批量触发事件
 
 ## Table of contents
 
@@ -41,7 +40,7 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `actionType` | `ActionType` | 类型 |
+| `actionType` | `BaseKey` | 类型 |
 | `func` | `Function` | 函数 |
 
 #### Returns
@@ -58,7 +57,7 @@
 
 #### Defined in
 
-channel/Channel.ts:14
+channel/Channel.ts:15
 
 ___
 
@@ -72,7 +71,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `actionType` | `ActionType` | 类型 |
+| `actionType` | `BaseKey` | 类型 |
 | `func?` | `Function` | 具体函数，不传则删除所有 |
 
 #### Returns
@@ -81,7 +80,7 @@ ___
 
 #### Defined in
 
-channel/Channel.ts:29
+channel/Channel.ts:30
 
 ___
 
@@ -95,7 +94,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `actionType` | `ActionType` | 类型 |
+| `actionType` | `BaseKey` | 类型 |
 | `...args` | `any`[] | 不定参数 |
 
 #### Returns
@@ -104,4 +103,4 @@ ___
 
 #### Defined in
 
-channel/Channel.ts:45
+channel/Channel.ts:46

@@ -6,14 +6,9 @@
 
 ### Functions
 
-- [arrToChunk](tools_tools.md#arrtochunk)
-- [arrToTree](tools_tools.md#arrtotree)
-- [binarySearch](tools_tools.md#binarysearch)
 - [celsiusToFahrenheit](tools_tools.md#celsiustofahrenheit)
 - [curry](tools_tools.md#curry)
 - [cutStr](tools_tools.md#cutstr)
-- [dayDiff](tools_tools.md#daydiff)
-- [dayOfYear](tools_tools.md#dayofyear)
 - [deepClone](tools_tools.md#deepclone)
 - [deepCompare](tools_tools.md#deepcompare)
 - [excludeKeys](tools_tools.md#excludekeys)
@@ -23,100 +18,13 @@
 - [filterVals](tools_tools.md#filtervals)
 - [genIcon](tools_tools.md#genicon)
 - [getRandomNum](tools_tools.md#getrandomnum)
-- [getSum](tools_tools.md#getsum)
 - [getType](tools_tools.md#gettype)
-- [getValidDate](tools_tools.md#getvaliddate)
-- [isLtYear](tools_tools.md#isltyear)
 - [numFixed](tools_tools.md#numfixed)
-- [padDate](tools_tools.md#paddate)
 - [padNum](tools_tools.md#padnum)
 - [randomStr](tools_tools.md#randomstr)
-- [timeFromDate](tools_tools.md#timefromdate)
 - [toCamel](tools_tools.md#tocamel)
 
 ## Functions
-
-### arrToChunk
-
-▸ **arrToChunk**\<`T`\>(`arr`, `size`): `T`[][]
-
-把数组分成 n 块
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `arr` | `T`[] | 数组 |
-| `size` | `number` | 每个数组大小 |
-
-#### Returns
-
-`T`[][]
-
-返回二维数组
-
-#### Defined in
-
-tools/tools.ts:158
-
-___
-
-### arrToTree
-
-▸ **arrToTree**(`arr`): `TreeData`[]
-
-递归树拍平
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `arr` | `TreeData`[] |
-
-#### Returns
-
-`TreeData`[]
-
-#### Defined in
-
-tools/tools.ts:120
-
-___
-
-### binarySearch
-
-▸ **binarySearch**\<`T`\>(`arr`, `target`): `number`
-
-二分查找，必须是正序的数组
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `arr` | `T`[] |
-| `target` | `T` |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-tools/tools.ts:171
-
-___
 
 ### celsiusToFahrenheit
 
@@ -136,7 +44,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:19
+tools/tools.ts:11
 
 ___
 
@@ -152,7 +60,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:228
+tools/tools.ts:121
 
 ___
 
@@ -177,58 +85,13 @@ ___
 
 #### Defined in
 
-tools/tools.ts:198
-
-___
-
-### dayDiff
-
-▸ **dayDiff**(`date1`, `date2`): `number`
-
-获取日期间隔 单位(天)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `date1` | `TimeType` |
-| `date2` | `TimeType` |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-tools/tools.ts:24
-
-___
-
-### dayOfYear
-
-▸ **dayOfYear**(`date?`): `number`
-
-今年的第几天
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `date` | `Date` |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-tools/tools.ts:13
+tools/tools.ts:91
 
 ___
 
 ### deepClone
 
-▸ **deepClone**\<`T`\>(`data`, `map?`): `any`
+▸ **deepClone**\<`T`\>(`data`, `map?`): `T`
 
 深拷贝
 
@@ -247,11 +110,11 @@ ___
 
 #### Returns
 
-`any`
+`T`
 
 #### Defined in
 
-tools/tools.ts:59
+tools/tools.ts:23
 
 ___
 
@@ -276,7 +139,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:79
+tools/tools.ts:44
 
 ___
 
@@ -284,7 +147,7 @@ ___
 
 ▸ **excludeKeys**\<`T`, `K`\>(`target`, `keys`): `Omit`\<`T`, `Extract`\<keyof `T`, `K`\>\>
 
-返回一个新对象，对象中会排除 `keys` 数组
+排除 `keys` 数组，返回一个对象
 例如：排除 `name`
 
 #### Type parameters
@@ -313,7 +176,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:405
+tools/tools.ts:254
 
 ___
 
@@ -321,7 +184,7 @@ ___
 
 ▸ **excludeVals**\<`T`\>(`data`, `excludeArr`): `Partial`\<`T`\>
 
-返回一个新对象，对象会排除值在 excludeArr，中的元素
+排除值在 excludeArr，中的元素
 例如排除所有空字符串
 
 #### Type parameters
@@ -349,7 +212,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:364
+tools/tools.ts:213
 
 ___
 
@@ -371,7 +234,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:21
+tools/tools.ts:13
 
 ___
 
@@ -379,7 +242,7 @@ ___
 
 ▸ **filterKeys**\<`T`, `K`\>(`target`, `keys`): `Pick`\<`T`, `Extract`\<keyof `T`, `K`\>\>
 
-返回一个新对象，对象中会提取 `keys` 数组
+提取 `keys` 数组，返回一个对象
 例如：提取 `name`
 
 #### Type parameters
@@ -408,7 +271,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:383
+tools/tools.ts:232
 
 ___
 
@@ -416,7 +279,7 @@ ___
 
 ▸ **filterVals**\<`T`\>(`data`, `extractArr`): `Partial`\<`T`\>
 
-返回一个新对象，对象会提取值在 extractArr，中的元素
+提取值在 extractArr，中的元素
 例如提取所有空字符串
 
 #### Type parameters
@@ -444,7 +307,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:345
+tools/tools.ts:194
 
 ___
 
@@ -471,7 +334,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:335
+tools/tools.ts:184
 
 ___
 
@@ -494,36 +357,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:33
-
-___
-
-### getSum
-
-▸ **getSum**\<`T`\>(`arr`, `handler?`): `number`
-
-对数组求和
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `arr` | `T`[] | - |
-| `handler?` | (`item`: `T`) => `number` | 可以对数组每一项进行操作，返回值将会被相加 |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-tools/tools.ts:41
+tools/tools.ts:18
 
 ___
 
@@ -545,52 +379,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:7
-
-___
-
-### getValidDate
-
-▸ **getValidDate**(`date`): `string` \| `number` \| `Date`
-
-把日期转为 `Date` 对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `date` | `string` \| `number` \| `Date` | 日期，可以是字符串或者时间戳 |
-
-#### Returns
-
-`string` \| `number` \| `Date`
-
-#### Defined in
-
-tools/tools.ts:300
-
-___
-
-### isLtYear
-
-▸ **isLtYear**(`curDate`, `yearLen?`): `boolean`
-
-返回给定日期是否小于某年`一月一日` 默认去年
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `curDate` | `string` \| `number` \| `Date` | `undefined` | 当前日期 |
-| `yearLen` | `number` | `-1` | 年份长度，默认 `-1`，即去年 |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-tools/tools.ts:316
+tools/tools.ts:5
 
 ___
 
@@ -620,32 +409,7 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:278
-
-___
-
-### padDate
-
-▸ **padDate**(`date`, `placeholder?`): `string`
-
-日期补零 把`yyyy-MM-dd` 转成 `yyyy-MM-dd HH:mm:ss`
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `date` | `string` | `undefined` | 格式: `2016-06-10` 必须和它长度保持一致 |
-| `placeholder` | `string` | `'00:00:00'` | 后面补充的字符串 默认`00:00:00` |
-
-#### Returns
-
-`string`
-
-如`2016-06-10 10:00:00`
-
-#### Defined in
-
-tools/tools.ts:289
+tools/tools.ts:171
 
 ___
 
@@ -669,7 +433,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:254
+tools/tools.ts:147
 
 ___
 
@@ -685,29 +449,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:10
-
-___
-
-### timeFromDate
-
-▸ **timeFromDate**(`date`): `string`
-
-获取时分秒
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `date` | `Date` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-tools/tools.ts:16
+tools/tools.ts:8
 
 ___
 
@@ -737,4 +479,4 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:219
+tools/tools.ts:112

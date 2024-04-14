@@ -38,7 +38,7 @@ speakTxtBtn.onclick = () => speakToTxt.start()
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `onResult` | `OnResult` | 返回结果的回调 |
+| `onResult` | `SpeakToTxtOnResult` | 返回结果的回调 |
 | `opts` | `SpeakToTxtOpts` | 配置项 |
 
 #### Returns
@@ -53,13 +53,13 @@ webApi/SpeakToTxt.ts:19
 
 ### start
 
-▸ **start**(): `void`
+▸ **start**(): [`SpeakToTxt`](webApi.SpeakToTxt.md)
 
 开始识别
 
 #### Returns
 
-`void`
+[`SpeakToTxt`](webApi.SpeakToTxt.md)
 
 #### Defined in
 
@@ -69,14 +69,14 @@ ___
 
 ### stop
 
-▸ **stop**(): `void`
+▸ **stop**(): [`SpeakToTxt`](webApi.SpeakToTxt.md)
 
 停止识别
 
 #### Returns
 
-`void`
+[`SpeakToTxt`](webApi.SpeakToTxt.md)
 
 #### Defined in
 
-webApi/SpeakToTxt.ts:41
+webApi/SpeakToTxt.ts:42

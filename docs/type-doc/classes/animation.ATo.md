@@ -9,10 +9,29 @@
 **`Example`**
 
 ```ts
-const aTo = new aTo()
+const aTo = new ATo()
 aTo
-   .start(...)
-   .next(...)
+   .start(
+       div1.style,
+       {
+           left: '200px',
+           top: '200px',
+           opacity: '0.1'
+       },
+       1000
+   )
+   .next(
+       div2.style,
+       {
+           translateX: '50vw',
+           translateY: '300px',
+       },
+       2000,
+       {
+           transform: true,
+           timeFunc: 'ease-in-out'
+       }
+   )
 ```
 
 ## Table of contents
@@ -69,7 +88,7 @@ aTo
 
 #### Defined in
 
-animation/ATo.ts:52
+animation/ATo.ts:71
 
 ___
 
@@ -103,7 +122,7 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:32
+animation/ATo.ts:51
 
 ___
 
@@ -119,4 +138,4 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:63
+animation/ATo.ts:82

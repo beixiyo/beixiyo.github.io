@@ -125,7 +125,7 @@ ___
 
 ### genTimeFunc
 
-▸ **genTimeFunc**(`name?`): (`v`: `number`) => `number`
+▸ **genTimeFunc**(`name?`): (`progress`: `number`) => `number`
 
 生成贝塞尔曲线函数
 
@@ -141,13 +141,13 @@ ___
 
 一个接收`0 ~ 1`进度参数的函数
 
-▸ (`v`): `number`
+▸ (`progress`): `number`
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `v` | `number` |
+| `progress` | `number` |
 
 ##### Returns
 
@@ -155,4 +155,4 @@ ___
 
 #### Defined in
 
-animation/timeFunc.ts:9
+animation/timeFunc.ts:218

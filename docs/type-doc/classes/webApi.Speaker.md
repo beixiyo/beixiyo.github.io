@@ -99,23 +99,23 @@ webApi/Speaker.ts:9
 
 ### pause
 
-▸ **pause**(): `void`
+▸ **pause**(): [`Speaker`](webApi.Speaker.md)
 
 暂停
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:51
+webApi/Speaker.ts:53
 
 ___
 
 ### play
 
-▸ **play**(`onEnd?`): `void`
+▸ **play**(`onEnd?`): [`Speaker`](webApi.Speaker.md)
 
 播放声音
 
@@ -127,7 +127,7 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
@@ -137,23 +137,23 @@ ___
 
 ### resume
 
-▸ **resume**(): `void`
+▸ **resume**(): [`Speaker`](webApi.Speaker.md)
 
 继续
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:56
+webApi/Speaker.ts:59
 
 ___
 
 ### setPitch
 
-▸ **setPitch**(`pitch`): `void`
+▸ **setPitch**(`pitch`): [`Speaker`](webApi.Speaker.md)
 
 设置音高
 
@@ -165,17 +165,17 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:90
+webApi/Speaker.ts:92
 
 ___
 
 ### setRate
 
-▸ **setRate**(`rate`): `void`
+▸ **setRate**(`rate`): [`Speaker`](webApi.Speaker.md)
 
 设置语速
 
@@ -187,17 +187,17 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:82
+webApi/Speaker.ts:86
 
 ___
 
 ### setText
 
-▸ **setText**(`txt?`): `void`
+▸ **setText**(`txt?`): [`Speaker`](webApi.Speaker.md)
 
 设置播放文本
 
@@ -209,17 +209,17 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:61
+webApi/Speaker.ts:65
 
 ___
 
 ### setVoice
 
-▸ **setVoice**(`index`): `void`
+▸ **setVoice**(`index`): [`Speaker`](webApi.Speaker.md)
 
 设置声音类型
 
@@ -231,17 +231,17 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:74
+webApi/Speaker.ts:77
 
 ___
 
 ### setVolume
 
-▸ **setVolume**(`volume?`): `void`
+▸ **setVolume**(`volume?`): [`Speaker`](webApi.Speaker.md)
 
 设置音量
 
@@ -253,24 +253,24 @@ ___
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:66
+webApi/Speaker.ts:71
 
 ___
 
 ### stop
 
-▸ **stop**(): `void`
+▸ **stop**(): [`Speaker`](webApi.Speaker.md)
 
 停止
 
 #### Returns
 
-`void`
+[`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:46
+webApi/Speaker.ts:47

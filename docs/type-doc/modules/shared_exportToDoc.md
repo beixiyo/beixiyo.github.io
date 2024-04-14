@@ -46,115 +46,122 @@ shared/constant.ts:2
 
 ### isArr
 
-▸ **isArr**(`s`): `boolean`
+▸ **isArr**\<`T`\>(`data`): data is T[]
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is T[]
 
 #### Defined in
 
-shared/is.ts:17
+shared/is.ts:28
 
 ___
 
 ### isBool
 
-▸ **isBool**(`s`): `boolean`
+▸ **isBool**(`data`): data is boolean
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is boolean
 
 #### Defined in
 
-shared/is.ts:13
+shared/is.ts:24
 
 ___
 
 ### isFn
 
-▸ **isFn**(`s`): `boolean`
+▸ **isFn**(`data`): data is Function
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is Function
 
 #### Defined in
 
-shared/is.ts:15
+shared/is.ts:26
 
 ___
 
 ### isNum
 
-▸ **isNum**(`s`): `boolean`
+▸ **isNum**(`data`): data is number
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is number
 
 #### Defined in
 
-shared/is.ts:12
+shared/is.ts:23
 
 ___
 
 ### isObj
 
-▸ **isObj**(`s`): `boolean`
+▸ **isObj**(`data`): data is object
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is object
 
 #### Defined in
 
-shared/is.ts:16
+shared/is.ts:27
 
 ___
 
 ### isPureNum
 
-▸ **isPureNum**(`value`): `boolean`
+▸ **isPureNum**(`value`, `enableParseFloat?`): `boolean`
 
 判断是否能强转成数字
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `string` \| `number` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `value` | `string` \| `number` | `undefined` | 判断的值 |
+| `enableParseFloat` | `boolean` | `false` | 默认 false，是否使用 parseFloat，这会把 '10px' 也当成数字 |
 
 #### Returns
 
@@ -162,7 +169,7 @@ ___
 
 #### Defined in
 
-shared/is.ts:2
+shared/is.ts:6
 
 ___
 
@@ -185,24 +192,24 @@ Object.is
 
 #### Defined in
 
-shared/is.ts:20
+shared/is.ts:31
 
 ___
 
 ### isStr
 
-▸ **isStr**(`s`): `boolean`
+▸ **isStr**(`data`): data is string
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `s` | `any` |
+| `data` | `any` |
 
 #### Returns
 
-`boolean`
+data is string
 
 #### Defined in
 
-shared/is.ts:11
+shared/is.ts:22

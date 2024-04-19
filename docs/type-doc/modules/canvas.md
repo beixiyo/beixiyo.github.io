@@ -4,6 +4,10 @@
 
 ## Table of contents
 
+### Type Aliases
+
+- [CutImgOpts](canvas.md#cutimgopts)
+
 ### Functions
 
 - [calcCoord](canvas.md#calccoord)
@@ -11,8 +15,31 @@
 - [createCvs](canvas.md#createcvs)
 - [cutImg](canvas.md#cutimg)
 - [fillPixel](canvas.md#fillpixel)
+- [getCvsImg](canvas.md#getcvsimg)
 - [getPixel](canvas.md#getpixel)
 - [parseImgData](canvas.md#parseimgdata)
+- [setElCrossOrigin](canvas.md#setelcrossorigin)
+
+## Type Aliases
+
+### CutImgOpts
+
+Ƭ **CutImgOpts**: `Object`
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `height?` | `number` | - |
+| `mimeType?` | `string` | 图片的 MIME 格式 |
+| `quality?` | `number` | 图像质量，取值范围 0 ~ 1 |
+| `width?` | `number` | - |
+| `x?` | `number` | - |
+| `y?` | `number` | - |
+
+#### Defined in
+
+canvas/imgHandle.ts:101
 
 ## Functions
 
@@ -41,7 +68,7 @@ ___
 
 ### compressImg
 
-▸ **compressImg**\<`T`\>(`img`, `resType`, `quality?`, `mimeType?`): `HandleImgReturn`\<`T`\>
+▸ **compressImg**\<`T`\>(`img`, `resType?`, `quality?`, `mimeType?`): `HandleImgReturn`\<`T`\>
 
 压缩图片
 
@@ -49,14 +76,14 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `TransferType` |
+| `T` | extends `TransferType` = ``"base64"`` |
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `img` | `HTMLImageElement` | `undefined` | 图片 |
-| `resType` | `T` | `undefined` | 需要返回的文件格式 |
+| `resType` | `T` | `undefined` | 需要返回的文件格式，默认 `base64` |
 | `quality` | `number` | `.5` | 压缩质量，默认 0.5 |
 | `mimeType` | ``"image/jpeg"`` \| ``"image/webp"`` | `'image/webp'` | 图片类型，默认 `image/webp`。`image/jpeg \| image/webp` 才能压缩， |
 
@@ -68,7 +95,7 @@ base64 | blob
 
 #### Defined in
 
-canvas/imgHandle.ts:48
+canvas/imgHandle.ts:40
 
 ___
 
@@ -105,7 +132,7 @@ ___
 
 ### cutImg
 
-▸ **cutImg**\<`T`\>(`img`, `resType`, `x?`, `y?`, `width?`, `height?`, `opts?`): `HandleImgReturn`\<`T`\>
+▸ **cutImg**\<`T`\>(`img`, `opts?`, `resType?`): `HandleImgReturn`\<`T`\>
 
 截取图片的一部分，返回 base64 | blob
 
@@ -113,21 +140,15 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `TransferType` |
+| `T` | extends `TransferType` = ``"base64"`` |
 
 #### Parameters
 
-| Name | Type | Default value |
+| Name | Type | Description |
 | :------ | :------ | :------ |
-| `img` | `HTMLImageElement` | `undefined` |
-| `resType` | `T` | `undefined` |
-| `x` | `number` | `0` |
-| `y` | `number` | `0` |
-| `width` | `number` | `img.width` |
-| `height` | `number` | `img.height` |
-| `opts` | `Object` | `{}` |
-| `opts.quality?` | `number` | `undefined` |
-| `opts.type?` | `string` | `undefined` |
+| `img` | `HTMLImageElement` | 图片 |
+| `opts` | [`CutImgOpts`](canvas.md#cutimgopts) | 配置 |
+| `resType` | `T` | 需要返回的文件格式，默认 `base64` |
 
 #### Returns
 
@@ -135,7 +156,7 @@ ___
 
 #### Defined in
 
-canvas/imgHandle.ts:7
+canvas/imgHandle.ts:11
 
 ___
 
@@ -161,6 +182,37 @@ ___
 #### Defined in
 
 canvas/tools.ts:85
+
+___
+
+### getCvsImg
+
+▸ **getCvsImg**\<`T`\>(`cvs`, `resType?`, `mimeType?`, `quality?`): `HandleImgReturn`\<`T`\>
+
+把 canvas 上的图像转成 base64 | blob
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `TransferType` = ``"base64"`` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cvs` | `HTMLCanvasElement` | canvas |
+| `resType` | `T` | 需要返回的文件格式，默认 `base64` |
+| `mimeType?` | `string` | - |
+| `quality?` | `number` | 压缩质量 |
+
+#### Returns
+
+`HandleImgReturn`\<`T`\>
+
+#### Defined in
+
+canvas/imgHandle.ts:67
 
 ___
 
@@ -214,3 +266,25 @@ ___
 #### Defined in
 
 canvas/tools.ts:68
+
+___
+
+### setElCrossOrigin
+
+▸ **setElCrossOrigin**(`el`): `void`
+
+设置元素的 crossOrigin
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `el` | `HTMLElement` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+canvas/imgHandle.ts:56

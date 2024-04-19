@@ -12,6 +12,7 @@
 
 - [dayDiff](tools_dateTools.md#daydiff)
 - [dayOfYear](tools_dateTools.md#dayofyear)
+- [getQuarter](tools_dateTools.md#getquarter)
 - [getValidDate](tools_dateTools.md#getvaliddate)
 - [isLtYear](tools_dateTools.md#isltyear)
 - [padDate](tools_dateTools.md#paddate)
@@ -34,7 +35,7 @@
 
 #### Defined in
 
-tools/dateTools.ts:112
+tools/dateTools.ts:130
 
 ## Functions
 
@@ -57,7 +58,7 @@ tools/dateTools.ts:112
 
 #### Defined in
 
-tools/dateTools.ts:17
+tools/dateTools.ts:35
 
 ___
 
@@ -83,6 +84,28 @@ tools/dateTools.ts:7
 
 ___
 
+### getQuarter
+
+▸ **getQuarter**(`date?`): ``1`` \| ``2`` \| ``3`` \| ``4``
+
+获取季度
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `TimeType` |
+
+#### Returns
+
+``1`` \| ``2`` \| ``3`` \| ``4``
+
+#### Defined in
+
+tools/dateTools.ts:17
+
+___
+
 ### getValidDate
 
 ▸ **getValidDate**(`date`): `string` \| `number` \| `Date`
@@ -101,7 +124,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:40
+tools/dateTools.ts:58
 
 ___
 
@@ -124,7 +147,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:56
+tools/dateTools.ts:74
 
 ___
 
@@ -149,7 +172,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:29
+tools/dateTools.ts:47
 
 ___
 
@@ -194,4 +217,4 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:71
+tools/dateTools.ts:89

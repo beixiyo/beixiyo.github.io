@@ -17,6 +17,7 @@
 - [fullScreen](tools_domTools.md#fullscreen)
 - [getAllStyle](tools_domTools.md#getallstyle)
 - [getImg](tools_domTools.md#getimg)
+- [getLocalStorage](tools_domTools.md#getlocalstorage)
 - [getSelectedText](tools_domTools.md#getselectedtext)
 - [getStyle](tools_domTools.md#getstyle)
 - [getWinHeight](tools_domTools.md#getwinheight)
@@ -28,6 +29,7 @@
 - [matchProtocol](tools_domTools.md#matchprotocol)
 - [print](tools_domTools.md#print)
 - [pxToVw](tools_domTools.md#pxtovw)
+- [setLocalStorage](tools_domTools.md#setlocalstorage)
 - [setParentOverflow](tools_domTools.md#setparentoverflow)
 - [throttle](tools_domTools.md#throttle)
 
@@ -51,7 +53,7 @@
 
 #### Defined in
 
-tools/domTools.ts:356
+tools/domTools.ts:369
 
 ___
 
@@ -97,7 +99,7 @@ Blob 转 Base64
 
 #### Defined in
 
-tools/domTools.ts:267
+tools/domTools.ts:280
 
 ___
 
@@ -119,7 +121,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:164
+tools/domTools.ts:177
 
 ___
 
@@ -207,7 +209,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:284
+tools/domTools.ts:297
 
 ___
 
@@ -275,7 +277,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:319
+tools/domTools.ts:332
 
 ___
 
@@ -291,7 +293,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:174
+tools/domTools.ts:187
 
 ___
 
@@ -313,7 +315,35 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:256
+tools/domTools.ts:269
+
+___
+
+### getLocalStorage
+
+▸ **getLocalStorage**\<`T`\>(`key`): `any`
+
+获取 LocalStorage，无需手动反序列化
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+tools/domTools.ts:164
 
 ___
 
@@ -329,7 +359,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:161
+tools/domTools.ts:174
 
 ___
 
@@ -423,7 +453,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:167
+tools/domTools.ts:180
 
 ___
 
@@ -439,7 +469,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:170
+tools/domTools.ts:183
 
 ___
 
@@ -463,7 +493,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:235
+tools/domTools.ts:248
 
 ___
 
@@ -509,7 +539,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:197
+tools/domTools.ts:210
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
@@ -529,7 +559,7 @@ tools/domTools.ts:197
 
 #### Defined in
 
-tools/domTools.ts:197
+tools/domTools.ts:210
 
 ___
 
@@ -559,6 +589,29 @@ tools/domTools.ts:99
 
 ___
 
+### setLocalStorage
+
+▸ **setLocalStorage**(`key`, `value`): `void`
+
+设置 LocalStorage，无需手动序列化
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+| `value` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+tools/domTools.ts:160
+
+___
+
 ### setParentOverflow
 
 ▸ **setParentOverflow**(`el`): `void`
@@ -577,7 +630,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:308
+tools/domTools.ts:321
 
 ___
 

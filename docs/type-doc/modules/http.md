@@ -13,7 +13,7 @@
 
 ### concurrentTask
 
-▸ **concurrentTask**\<`T`\>(`tasks`, `maxNum?`): `Promise`\<`T`[]\>
+▸ **concurrentTask**\<`T`\>(`tasks`, `maxCount?`): `Promise`\<`T`[]\>
 
 并发任务数组 完成最大并发数后才会继续
 
@@ -28,7 +28,7 @@
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `tasks` | () => `Promise`\<`T`\>[] | `undefined` | 任务数组 |
-| `maxNum` | `number` | `4` | 最大并发数 |
+| `maxCount` | `number` | `4` | 最大并发数，默认 4 |
 
 #### Returns
 
@@ -42,7 +42,7 @@ ___
 
 ### retryReq
 
-▸ **retryReq**\<`T`\>(`task`, `count?`): `Promise`\<`T`\>
+▸ **retryReq**\<`T`\>(`task`, `maxCount?`): `Promise`\<`T`\>
 
 失败后自动重试请求
 
@@ -57,7 +57,7 @@ ___
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `task` | () => `Promise`\<`T`\> | `undefined` | 任务数组 |
-| `count` | `number` | `3` | 重试次数 |
+| `maxCount` | `number` | `3` | 重试次数，默认 3 |
 
 #### Returns
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-http/tool.ts:6
+http/tool.ts:7

@@ -4,14 +4,20 @@
 
 ## Table of contents
 
+### Interfaces
+
+- [DateInfo](../interfaces/tools_dateTools.DateInfo.md)
+
 ### Type Aliases
 
+- [DateFormat](tools_dateTools.md#dateformat)
 - [TimeGapOpts](tools_dateTools.md#timegapopts)
 
 ### Functions
 
 - [dayDiff](tools_dateTools.md#daydiff)
 - [dayOfYear](tools_dateTools.md#dayofyear)
+- [formatDate](tools_dateTools.md#formatdate)
 - [getQuarter](tools_dateTools.md#getquarter)
 - [getValidDate](tools_dateTools.md#getvaliddate)
 - [isLtYear](tools_dateTools.md#isltyear)
@@ -20,6 +26,16 @@
 - [timeGap](tools_dateTools.md#timegap)
 
 ## Type Aliases
+
+### DateFormat
+
+Ƭ **DateFormat**: (`dateInfo`: [`DateInfo`](../interfaces/tools_dateTools.DateInfo.md)) => `string` \| ``"yyyy-MM-dd"`` \| ``"yyyy-MM-dd HH"`` \| ``"yyyy-MM-dd HH:mm"`` \| ``"yyyy-MM-dd HH:mm:ss"`` \| ``"yyyy-MM-dd HH:mm:ss:ms"`` \| ``"yyyy-MM-dd 00:00"`` \| ``"yyyy-MM-dd 00:00:00"`` \| ``"yyyy-MM-dd 23:59"`` \| ``"yyyy-MM-dd 23:59:59"``
+
+#### Defined in
+
+tools/dateTools.ts:198
+
+___
 
 ### TimeGapOpts
 
@@ -35,7 +51,7 @@
 
 #### Defined in
 
-tools/dateTools.ts:130
+tools/dateTools.ts:220
 
 ## Functions
 
@@ -58,7 +74,7 @@ tools/dateTools.ts:130
 
 #### Defined in
 
-tools/dateTools.ts:35
+tools/dateTools.ts:36
 
 ___
 
@@ -80,7 +96,42 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:7
+tools/dateTools.ts:8
+
+___
+
+### formatDate
+
+▸ **formatDate**(`formatter?`, `date?`, `padZero?`): `string`
+
+格式化时间，你也可以放在 Date.prototype 上，然后 new Date().formatDate()
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `formatter` | [`DateFormat`](tools_dateTools.md#dateformat) | `'yyyy-MM-dd HH:mm:ss'` | 格式化函数或者字符串 |
+| `date?` | `Date` | `undefined` | 日期，默认当前时间 |
+| `padZero` | `boolean` | `true` | 是否补零，默认 true |
+
+#### Returns
+
+`string`
+
+**`Example`**
+
+```ts
+console.log(formatDate('yyyy-MM-dd 00:00'))
+console.log(formatDate('yyyy-MM-dd', new Date(66600), false))
+console.log(formatDate('yyyy-MM-dd HH:mm:ss:ms'))
+console.log(formatDate((dateInfo) => {
+    return `今年是${dateInfo.yyyy}年`
+}))
+```
+
+#### Defined in
+
+tools/dateTools.ts:146
 
 ___
 
@@ -102,7 +153,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:17
+tools/dateTools.ts:18
 
 ___
 
@@ -124,7 +175,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:58
+tools/dateTools.ts:59
 
 ___
 
@@ -147,7 +198,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:74
+tools/dateTools.ts:75
 
 ___
 
@@ -172,7 +223,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:47
+tools/dateTools.ts:48
 
 ___
 
@@ -194,7 +245,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:14
+tools/dateTools.ts:15
 
 ___
 
@@ -202,7 +253,8 @@ ___
 
 ▸ **timeGap**(`date?`, `opts?`): `string`
 
-描述传入日期相对于当前时间的口头说法
+描述传入日期相对于当前时间的口头说法  
+例如：刚刚、1分钟前、1小时前、1天前、1个月前、1年前...
 
 #### Parameters
 
@@ -215,6 +267,12 @@ ___
 
 `string`
 
+**`Example`**
+
+```ts
+console.log(timeGap()) // 刚刚
+```
+
 #### Defined in
 
-tools/dateTools.ts:89
+tools/dateTools.ts:93

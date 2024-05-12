@@ -53,7 +53,7 @@
 
 #### Defined in
 
-tools/domTools.ts:369
+tools/domTools.ts:371
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:67
+tools/domTools.ts:69
 
 ___
 
@@ -99,7 +99,7 @@ Blob 转 Base64
 
 #### Defined in
 
-tools/domTools.ts:280
+tools/domTools.ts:282
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:177
+tools/domTools.ts:179
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:145
+tools/domTools.ts:147
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:297
+tools/domTools.ts:299
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 ▸ **downloadByData**(`data`, `filename`): `void`
 
-根据 `Blob` 下载
+用 `Blob` 下载
 
 #### Parameters
 
@@ -232,22 +232,23 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:29
+tools/domTools.ts:34
 
 ___
 
 ### downloadByUrl
 
-▸ **downloadByUrl**(`url`, `fileName`): `Promise`\<`void`\>
+▸ **downloadByUrl**(`url`, `fileName`, `matchProto?`): `Promise`\<`void`\>
 
-用cdn链接下载
+用链接下载
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | 链接 |
-| `fileName` | `string` | 文件名 |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `url` | `string` | `undefined` | 链接 |
+| `fileName` | `string` | `undefined` | 文件名 |
+| `matchProto` | `boolean` | `false` | 是否匹配协议，比如把 http 匹配为当前站的协议。默认 false |
 
 #### Returns
 
@@ -277,7 +278,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:332
+tools/domTools.ts:334
 
 ___
 
@@ -293,7 +294,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:187
+tools/domTools.ts:189
 
 ___
 
@@ -315,7 +316,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:269
+tools/domTools.ts:271
 
 ___
 
@@ -343,7 +344,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:164
+tools/domTools.ts:166
 
 ___
 
@@ -359,7 +360,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:174
+tools/domTools.ts:176
 
 ___
 
@@ -383,7 +384,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:118
+tools/domTools.ts:120
 
 ___
 
@@ -437,7 +438,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:85
+tools/domTools.ts:87
 
 ___
 
@@ -453,7 +454,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:180
+tools/domTools.ts:182
 
 ___
 
@@ -469,7 +470,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:183
+tools/domTools.ts:185
 
 ___
 
@@ -493,7 +494,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:248
+tools/domTools.ts:250
 
 ___
 
@@ -515,7 +516,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:39
+tools/domTools.ts:24
 
 ___
 
@@ -539,7 +540,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:210
+tools/domTools.ts:212
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
@@ -559,7 +560,7 @@ tools/domTools.ts:210
 
 #### Defined in
 
-tools/domTools.ts:210
+tools/domTools.ts:212
 
 ___
 
@@ -585,7 +586,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:99
+tools/domTools.ts:101
 
 ___
 
@@ -608,7 +609,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:160
+tools/domTools.ts:162
 
 ___
 
@@ -630,7 +631,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:321
+tools/domTools.ts:323
 
 ___
 
@@ -674,4 +675,4 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:129
+tools/domTools.ts:131

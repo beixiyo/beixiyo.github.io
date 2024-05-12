@@ -20,6 +20,7 @@
 - [getRandomNum](tools_tools.md#getrandomnum)
 - [getType](tools_tools.md#gettype)
 - [numFixed](tools_tools.md#numfixed)
+- [padEmptyObj](tools_tools.md#pademptyobj)
 - [padNum](tools_tools.md#padnum)
 - [randomStr](tools_tools.md#randomstr)
 - [toCamel](tools_tools.md#tocamel)
@@ -60,7 +61,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:121
+tools/tools.ts:160
 
 ___
 
@@ -176,7 +177,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:254
+tools/tools.ts:294
 
 ___
 
@@ -212,7 +213,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:213
+tools/tools.ts:253
 
 ___
 
@@ -271,7 +272,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:232
+tools/tools.ts:272
 
 ___
 
@@ -307,7 +308,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:194
+tools/tools.ts:234
 
 ___
 
@@ -334,7 +335,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:184
+tools/tools.ts:224
 
 ___
 
@@ -393,8 +394,8 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `num` | `number` | `undefined` | 数值 |
-| `precision` | `number` | `2` | 精度 默认 2 |
+| `num` | `string` \| `number` | `undefined` | 数值 |
+| `precision` | `number` | `2` | 精度，默认 2 |
 
 #### Returns
 
@@ -409,7 +410,40 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:171
+tools/tools.ts:210
+
+___
+
+### padEmptyObj
+
+▸ **padEmptyObj**\<`T`\>(`data`, `config?`): `T`
+
+把对象的空值转为指定字符串，默认 `--`  
+包含 空白字符串、null、undefined 等  
+默认不包含数值或字符串 0，可通过配置修改
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `T` |
+| `config?` | `Object` |
+| `config.ignoreNum?` | `boolean` |
+| `config.padStr?` | `string` |
+
+#### Returns
+
+`T`
+
+#### Defined in
+
+tools/tools.ts:109
 
 ___
 
@@ -433,7 +467,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:147
+tools/tools.ts:186
 
 ___
 
@@ -479,4 +513,4 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:112
+tools/tools.ts:151

@@ -73,6 +73,16 @@ export declare function deepCompare(o1: any, o2: any, seen?: WeakMap<WeakKey, an
 export declare function cutStr(str: string, len: number, placeholder?: string): string;
 
 /**
+ * 把对象的空值转为指定字符串，默认 `--`
+ * 包含 空白字符串、null、undefined 等
+ * 默认不包含数值或字符串 0，可通过配置修改
+ */
+export declare function padEmptyObj<T extends object>(data: T, config?: {
+    padStr?: string;
+    ignoreNum?: boolean;
+}): T;
+
+/**
  * 蛇形转驼峰 也可以指定转换其他的
  * @param key 需要转换的字符串
  * @param replaceStr 默认是 `_`，也就是蛇形转驼峰
@@ -100,9 +110,9 @@ export declare function padNum(num: string | number, precision?: number, placeho
  * numFixed(1.335) => 1.34
  *
  * @param num 数值
- * @param precision 精度 默认 2
+ * @param precision 精度，默认 2
  */
-export declare function numFixed(num: number, precision?: number): number;
+export declare function numFixed(num: number | string, precision?: number): number;
 
 /**
  * 生成 iconfont 的类名
@@ -160,9 +170,16 @@ export declare function retryReq<T>(task: () => Promise<T>, maxCount?: number): 
 export declare function concurrentTask<T>(tasks: (() => Promise<T>)[], maxCount?: number): Promise<T[]>;
 ```
 
-
 ## 数组处理
 ```ts
+/**
+ * 计算分页的当前数据
+ * @param arr 全部数据的数组
+ * @param curPage 当前页
+ * @param pageSize 一页大小，默认 20
+ */
+export declare function getPageData<T>(arr: T[], curPage: number, pageSize?: number): T[];
+
 /**
  * 对数组求和
  * @param handler 可以对数组每一项进行操作，返回值将会被相加

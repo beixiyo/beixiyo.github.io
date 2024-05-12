@@ -9,6 +9,7 @@
 - [arrToChunk](tools_arrTools.md#arrtochunk)
 - [arrToTree](tools_arrTools.md#arrtotree)
 - [binarySearch](tools_arrTools.md#binarysearch)
+- [getPageData](tools_arrTools.md#getpagedata)
 - [getSum](tools_arrTools.md#getsum)
 - [groupBy](tools_arrTools.md#groupby)
 
@@ -41,7 +42,7 @@
 
 #### Defined in
 
-tools/arrTools.ts:219
+tools/arrTools.ts:229
 
 ___
 
@@ -83,7 +84,7 @@ const treeData = arrToTree(arr)
 
 #### Defined in
 
-tools/arrTools.ts:177
+tools/arrTools.ts:187
 
 ___
 
@@ -112,7 +113,37 @@ ___
 
 #### Defined in
 
-tools/arrTools.ts:232
+tools/arrTools.ts:242
+
+___
+
+### getPageData
+
+▸ **getPageData**\<`T`\>(`arr`, `curPage`, `pageSize?`): `T`[]
+
+计算分页的当前数据
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `arr` | `T`[] | `undefined` | 全部数据的数组 |
+| `curPage` | `number` | `undefined` | 当前页 |
+| `pageSize` | `number` | `20` | 一页大小，默认 20 |
+
+#### Returns
+
+`T`[]
+
+#### Defined in
+
+tools/arrTools.ts:11
 
 ___
 
@@ -141,7 +172,7 @@ ___
 
 #### Defined in
 
-tools/arrTools.ts:9
+tools/arrTools.ts:19
 
 ___
 
@@ -185,4 +216,4 @@ groupBy(input, 'type', null) => [ { type: 'chinese', children: [{ ... }] }, ... 
 
 #### Defined in
 
-tools/arrTools.ts:42
+tools/arrTools.ts:52

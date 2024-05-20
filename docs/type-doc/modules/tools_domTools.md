@@ -8,8 +8,11 @@
 
 - [HTMLToStr](tools_domTools.md#htmltostr)
 - [adaptPx](tools_domTools.md#adaptpx)
+- [base64ToBlob](tools_domTools.md#base64toblob)
 - [blobToBase64](tools_domTools.md#blobtobase64)
+- [blobToStream](tools_domTools.md#blobtostream)
 - [copyToClipboard](tools_domTools.md#copytoclipboard)
+- [dataToStr](tools_domTools.md#datatostr)
 - [debounce](tools_domTools.md#debounce)
 - [doubleKeyDown](tools_domTools.md#doublekeydown)
 - [downloadByData](tools_domTools.md#downloadbydata)
@@ -53,7 +56,7 @@
 
 #### Defined in
 
-tools/domTools.ts:371
+tools/domTools.ts:431
 
 ___
 
@@ -81,6 +84,29 @@ tools/domTools.ts:69
 
 ___
 
+### base64ToBlob
+
+▸ **base64ToBlob**(`base64String`, `mimeType?`): `Blob`
+
+Base64 转 Blob
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `base64String` | `string` | `undefined` | base64 |
+| `mimeType` | `string` | `'application/octet-stream'` | 文件类型，默认 application/octet-stream |
+
+#### Returns
+
+`Blob`
+
+#### Defined in
+
+tools/domTools.ts:300
+
+___
+
 ### blobToBase64
 
 ▸ **blobToBase64**(`blob`): `Promise`\<`string`\>
@@ -99,7 +125,29 @@ Blob 转 Base64
 
 #### Defined in
 
-tools/domTools.ts:282
+tools/domTools.ts:284
+
+___
+
+### blobToStream
+
+▸ **blobToStream**(`blob`): `Promise`\<`ReadableStream`\>
+
+blob 转成 Stream，方便浏览器和 Node 互操作
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `blob` | `Blob` |
+
+#### Returns
+
+`Promise`\<`ReadableStream`\>
+
+#### Defined in
+
+tools/domTools.ts:320
 
 ___
 
@@ -122,6 +170,29 @@ ___
 #### Defined in
 
 tools/domTools.ts:179
+
+___
+
+### dataToStr
+
+▸ **dataToStr**(`data`, `encode?`): `Promise`\<`string`\>
+
+二进制转字符串
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `data` | `Blob` \| `ArrayBuffer` | `undefined` | 数据 |
+| `encode` | `string` | `'utf-8'` | 编码格式，默认 utf-8 |
+
+#### Returns
+
+`Promise`\<`string`\>
+
+#### Defined in
+
+tools/domTools.ts:344
 
 ___
 
@@ -209,7 +280,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:299
+tools/domTools.ts:359
 
 ___
 
@@ -278,7 +349,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:334
+tools/domTools.ts:394
 
 ___
 
@@ -631,7 +702,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:323
+tools/domTools.ts:383
 
 ___
 

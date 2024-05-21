@@ -17,6 +17,7 @@
 - [tools/colorTools](modules/tools_colorTools.md)
 - [tools/dateTools](modules/tools_dateTools.md)
 - [tools/domTools](modules/tools_domTools.md)
+- [tools/fileTools](modules/tools_fileTools.md)
 - [tools/scheduleTask](modules/tools_scheduleTask.md)
 - [tools/tools](modules/tools_tools.md)
 - [webApi](modules/webApi.md)

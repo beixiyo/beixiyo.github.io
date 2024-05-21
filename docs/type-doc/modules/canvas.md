@@ -203,7 +203,7 @@ ___
 | :------ | :------ | :------ |
 | `cvs` | `HTMLCanvasElement` | canvas |
 | `resType` | `T` | 需要返回的文件格式，默认 `base64` |
-| `mimeType?` | `string` | - |
+| `mimeType?` | `string` | 图片的 MIME 格式 |
 | `quality?` | `number` | 压缩质量 |
 
 #### Returns
@@ -273,7 +273,7 @@ ___
 
 ▸ **setElCrossOrigin**(`el`): `void`
 
-设置元素的 crossOrigin
+设置元素的 crossOrigin 为 anonymous
 
 #### Parameters
 

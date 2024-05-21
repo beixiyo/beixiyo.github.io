@@ -465,6 +465,8 @@ ___
 
 `string`
 
+数字字符串
+
 #### Defined in
 
 tools/tools.ts:186

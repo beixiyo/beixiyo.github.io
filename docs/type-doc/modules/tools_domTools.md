@@ -8,15 +8,9 @@
 
 - [HTMLToStr](tools_domTools.md#htmltostr)
 - [adaptPx](tools_domTools.md#adaptpx)
-- [base64ToBlob](tools_domTools.md#base64toblob)
-- [blobToBase64](tools_domTools.md#blobtobase64)
-- [blobToStream](tools_domTools.md#blobtostream)
 - [copyToClipboard](tools_domTools.md#copytoclipboard)
-- [dataToStr](tools_domTools.md#datatostr)
 - [debounce](tools_domTools.md#debounce)
 - [doubleKeyDown](tools_domTools.md#doublekeydown)
-- [downloadByData](tools_domTools.md#downloadbydata)
-- [downloadByUrl](tools_domTools.md#downloadbyurl)
 - [fullScreen](tools_domTools.md#fullscreen)
 - [getAllStyle](tools_domTools.md#getallstyle)
 - [getImg](tools_domTools.md#getimg)
@@ -56,7 +50,7 @@
 
 #### Defined in
 
-tools/domTools.ts:431
+tools/domTools.ts:325
 
 ___
 
@@ -72,7 +66,7 @@ ___
 | :------ | :------ | :------ | :------ |
 | `px` | `string` \| `number` | `undefined` | 像素大小 |
 | `designSize` | `number` | `1920` | 设计稿大小 默认`1920` |
-| `type` | ``"width"`` \| ``"height"`` | `'width'` | 根据什么缩放 默认是宽度 |
+| `type` | ``"height"`` \| ``"width"`` | `'width'` | 根据什么缩放 默认是宽度 |
 
 #### Returns
 
@@ -80,74 +74,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:69
-
-___
-
-### base64ToBlob
-
-▸ **base64ToBlob**(`base64String`, `mimeType?`): `Blob`
-
-Base64 转 Blob
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `base64String` | `string` | `undefined` | base64 |
-| `mimeType` | `string` | `'application/octet-stream'` | 文件类型，默认 application/octet-stream |
-
-#### Returns
-
-`Blob`
-
-#### Defined in
-
-tools/domTools.ts:300
-
-___
-
-### blobToBase64
-
-▸ **blobToBase64**(`blob`): `Promise`\<`string`\>
-
-Blob 转 Base64
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `blob` | `Blob` |
-
-#### Returns
-
-`Promise`\<`string`\>
-
-#### Defined in
-
-tools/domTools.ts:284
-
-___
-
-### blobToStream
-
-▸ **blobToStream**(`blob`): `Promise`\<`ReadableStream`\>
-
-blob 转成 Stream，方便浏览器和 Node 互操作
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `blob` | `Blob` |
-
-#### Returns
-
-`Promise`\<`ReadableStream`\>
-
-#### Defined in
-
-tools/domTools.ts:320
+tools/domTools.ts:34
 
 ___
 
@@ -169,30 +96,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:179
-
-___
-
-### dataToStr
-
-▸ **dataToStr**(`data`, `encode?`): `Promise`\<`string`\>
-
-二进制转字符串
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `data` | `Blob` \| `ArrayBuffer` | `undefined` | 数据 |
-| `encode` | `string` | `'utf-8'` | 编码格式，默认 utf-8 |
-
-#### Returns
-
-`Promise`\<`string`\>
-
-#### Defined in
-
-tools/domTools.ts:344
+tools/domTools.ts:144
 
 ___
 
@@ -236,7 +140,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:147
+tools/domTools.ts:112
 
 ___
 
@@ -258,7 +162,7 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `code` | `KeyCode` | `undefined` | 上下左右 |
+| `code` | `string` | `undefined` | 上下左右 |
 | `fn` | (`this`: `T`, ...`args`: `P`[]) => `R` | `undefined` | 双击后执行函数 |
 | `gap` | `number` | `150` | 间隔时间 |
 
@@ -280,54 +184,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:359
-
-___
-
-### downloadByData
-
-▸ **downloadByData**(`data`, `filename`): `void`
-
-用 `Blob` 下载
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `Blob` | 数据 |
-| `filename` | `string` | 文件名 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-tools/domTools.ts:34
-
-___
-
-### downloadByUrl
-
-▸ **downloadByUrl**(`url`, `fileName`, `matchProto?`): `Promise`\<`void`\>
-
-用链接下载
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `url` | `string` | `undefined` | 链接 |
-| `fileName` | `string` | `undefined` | 文件名 |
-| `matchProto` | `boolean` | `false` | 是否匹配协议，比如把 http 匹配为当前站的协议。默认 false |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-tools/domTools.ts:49
+tools/domTools.ts:253
 
 ___
 
@@ -349,7 +206,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:394
+tools/domTools.ts:288
 
 ___
 
@@ -365,7 +222,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:189
+tools/domTools.ts:154
 
 ___
 
@@ -387,15 +244,15 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:271
+tools/domTools.ts:237
 
 ___
 
 ### getLocalStorage
 
-▸ **getLocalStorage**\<`T`\>(`key`): `any`
+▸ **getLocalStorage**\<`T`\>(`key`): `T` \| ``null``
 
-获取 LocalStorage，无需手动反序列化
+获取 LocalStorage，无需手动解析
 
 #### Type parameters
 
@@ -411,11 +268,11 @@ ___
 
 #### Returns
 
-`any`
+`T` \| ``null``
 
 #### Defined in
 
-tools/domTools.ts:166
+tools/domTools.ts:131
 
 ___
 
@@ -431,7 +288,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:176
+tools/domTools.ts:141
 
 ___
 
@@ -455,7 +312,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:120
+tools/domTools.ts:85
 
 ___
 
@@ -471,7 +328,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:15
+tools/domTools.ts:14
 
 ___
 
@@ -487,7 +344,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:7
+tools/domTools.ts:6
 
 ___
 
@@ -509,7 +366,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:87
+tools/domTools.ts:52
 
 ___
 
@@ -525,7 +382,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:182
+tools/domTools.ts:147
 
 ___
 
@@ -541,7 +398,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:185
+tools/domTools.ts:150
 
 ___
 
@@ -565,7 +422,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:250
+tools/domTools.ts:216
 
 ___
 
@@ -587,7 +444,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:24
+tools/domTools.ts:23
 
 ___
 
@@ -611,7 +468,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:212
+tools/domTools.ts:178
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
@@ -631,7 +488,7 @@ tools/domTools.ts:212
 
 #### Defined in
 
-tools/domTools.ts:212
+tools/domTools.ts:178
 
 ___
 
@@ -657,7 +514,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:101
+tools/domTools.ts:66
 
 ___
 
@@ -665,7 +522,7 @@ ___
 
 ▸ **setLocalStorage**(`key`, `value`): `void`
 
-设置 LocalStorage，无需手动序列化
+设置 LocalStorage，无需手动转 JSON
 
 #### Parameters
 
@@ -680,7 +537,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:162
+tools/domTools.ts:127
 
 ___
 
@@ -702,7 +559,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:383
+tools/domTools.ts:277
 
 ___
 
@@ -746,4 +603,4 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:131
+tools/domTools.ts:96

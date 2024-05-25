@@ -50,7 +50,7 @@
 
 #### Defined in
 
-tools/domTools.ts:325
+tools/domTools.ts:327
 
 ___
 
@@ -66,7 +66,7 @@ ___
 | :------ | :------ | :------ | :------ |
 | `px` | `string` \| `number` | `undefined` | 像素大小 |
 | `designSize` | `number` | `1920` | 设计稿大小 默认`1920` |
-| `type` | ``"height"`` \| ``"width"`` | `'width'` | 根据什么缩放 默认是宽度 |
+| `type` | ``"width"`` \| ``"height"`` | `'width'` | 根据什么缩放 默认是宽度 |
 
 #### Returns
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:34
+tools/domTools.ts:35
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:144
+tools/domTools.ts:145
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:112
+tools/domTools.ts:113
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:253
+tools/domTools.ts:255
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:288
+tools/domTools.ts:290
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:154
+tools/domTools.ts:155
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:237
+tools/domTools.ts:238
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:131
+tools/domTools.ts:132
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:141
+tools/domTools.ts:142
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:85
+tools/domTools.ts:86
 
 ___
 
@@ -328,7 +328,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:14
+tools/domTools.ts:15
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:6
+tools/domTools.ts:7
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:52
+tools/domTools.ts:53
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:147
+tools/domTools.ts:148
 
 ___
 
@@ -398,7 +398,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:150
+tools/domTools.ts:151
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:216
+tools/domTools.ts:217
 
 ___
 
@@ -444,7 +444,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:23
+tools/domTools.ts:24
 
 ___
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:178
+tools/domTools.ts:179
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
@@ -488,7 +488,7 @@ tools/domTools.ts:178
 
 #### Defined in
 
-tools/domTools.ts:178
+tools/domTools.ts:179
 
 ___
 
@@ -514,7 +514,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:66
+tools/domTools.ts:67
 
 ___
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:127
+tools/domTools.ts:128
 
 ___
 
@@ -559,7 +559,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:277
+tools/domTools.ts:279
 
 ___
 
@@ -603,4 +603,4 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:96
+tools/domTools.ts:97

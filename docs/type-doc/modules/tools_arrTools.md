@@ -189,7 +189,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Record`\<`BaseKey`, `any`\> |
+| `T` | extends `Record`\<`string` \| `number` \| `symbol`, `any`\> |
 
 #### Parameters
 

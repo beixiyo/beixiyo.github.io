@@ -212,7 +212,7 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `date` | `string` | `undefined` | 格式: `2016-06-10` 必须和它长度保持一致 |
+| `date` | `string` | `undefined` | 格式: `2016-06-10`，必须和它长度保持一致，否则直接返回 |
 | `placeholder` | `string` | `'00:00:00'` | 后面补充的字符串 默认`00:00:00` |
 
 #### Returns

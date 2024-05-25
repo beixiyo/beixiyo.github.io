@@ -6,5 +6,9 @@
 
 ### Classes
 
-- [Channel](../classes/channel.Channel.md)
 - [EventBus](../classes/channel.EventBus.md)
+- [Observer](../classes/channel.Observer.md)
+
+### Interfaces
+
+- [IObserver](../interfaces/channel.IObserver.md)

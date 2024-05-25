@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [CutImgOpts](canvas.md#cutimgopts)
+- [Pixel](canvas.md#pixel)
 
 ### Functions
 
@@ -39,7 +40,17 @@
 
 #### Defined in
 
-canvas/imgHandle.ts:101
+canvas/imgHandle.ts:99
+
+___
+
+### Pixel
+
+Ƭ **Pixel**: [R: number, G: number, B: number, A: number]
+
+#### Defined in
+
+types/base.ts:8
 
 ## Functions
 
@@ -95,7 +106,7 @@ base64 | blob
 
 #### Defined in
 
-canvas/imgHandle.ts:40
+canvas/imgHandle.ts:39
 
 ___
 
@@ -181,7 +192,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:85
+canvas/tools.ts:86
 
 ___
 
@@ -212,13 +223,13 @@ ___
 
 #### Defined in
 
-canvas/imgHandle.ts:67
+canvas/imgHandle.ts:65
 
 ___
 
 ### getPixel
 
-▸ **getPixel**(`x`, `y`, `imgData`, `width`): `Pixel`
+▸ **getPixel**(`x`, `y`, `imgData`, `width`): [`Pixel`](canvas.md#pixel)
 
 取出`canvas`用一维数组描述的颜色中 某个坐标的`RGBA`数组  
 注意坐标从 0 开始
@@ -234,7 +245,7 @@ ___
 
 #### Returns
 
-`Pixel`
+[`Pixel`](canvas.md#pixel)
 
 `RGBA`数组
 
@@ -246,7 +257,7 @@ ___
 
 ### parseImgData
 
-▸ **parseImgData**(`imgData`, `width`, `height`): `number`[][][]
+▸ **parseImgData**(`imgData`, `width`, `height`): [`Pixel`](canvas.md#pixel)[][]
 
 美化 ctx.getImageData.data 属性  
 每一行为一个大数组，每个像素点为一个小数组
@@ -261,11 +272,11 @@ ___
 
 #### Returns
 
-`number`[][][]
+[`Pixel`](canvas.md#pixel)[][]
 
 #### Defined in
 
-canvas/tools.ts:68
+canvas/tools.ts:69
 
 ___
 
@@ -287,4 +298,4 @@ ___
 
 #### Defined in
 
-canvas/imgHandle.ts:56
+canvas/imgHandle.ts:54

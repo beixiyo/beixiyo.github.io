@@ -4,10 +4,48 @@
 
 ## Table of contents
 
+### Classes
+
+- [WS](../classes/http.WS.md)
+
+### Type Aliases
+
+- [SocketCb](http.md#socketcb)
+
 ### Functions
 
 - [concurrentTask](http.md#concurrenttask)
 - [retryReq](http.md#retryreq)
+
+## Type Aliases
+
+### SocketCb
+
+Ƭ **SocketCb**\<`T`\>: (`event`: `MessageEvent`\<`T`\>) => `void`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Type declaration
+
+▸ (`event`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `MessageEvent`\<`T`\> |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+http/WS.ts:251
 
 ## Functions
 
@@ -36,7 +74,7 @@
 
 #### Defined in
 
-http/tool.ts:25
+http/tool.ts:24
 
 ___
 
@@ -65,4 +103,4 @@ ___
 
 #### Defined in
 
-http/tool.ts:7
+http/tool.ts:6

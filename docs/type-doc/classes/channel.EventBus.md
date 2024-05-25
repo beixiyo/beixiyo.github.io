@@ -4,7 +4,13 @@
 
 [channel](../modules/channel.md).EventBus
 
-消息订阅与派发
+消息订阅与派发，订阅和派发指定消息
+
+## Hierarchy
+
+- **`EventBus`**
+
+  ↳ [`WS`](http.WS.md)
 
 ## Table of contents
 
@@ -35,13 +41,13 @@
 
 ▸ **emit**(`eventName`, `...args`): `void`
 
-发送事件
+发送指定事件，通知所有订阅者
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` | 事件名 |
+| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
 | `...args` | `any`[] | 不定参数 |
 
 #### Returns
@@ -50,7 +56,7 @@
 
 #### Defined in
 
-channel/EventBus.ts:31
+channel/EventBus.ts:36
 
 ___
 
@@ -64,7 +70,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName?` | `string` | 空字符或者不传代表重置所有 |
+| `eventName?` | `string` \| `number` \| `symbol` | 空字符或者不传代表重置所有 |
 | `func?` | `Function` | 要取关的函数，为空取关该事件的所有函数 |
 
 #### Returns
@@ -73,7 +79,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:47
+channel/EventBus.ts:53
 
 ___
 
@@ -87,7 +93,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` | 事件名 |
+| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
 | `fn` | `Function` | 接收函数 |
 
 #### Returns
@@ -96,7 +102,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:13
+channel/EventBus.ts:18
 
 ___
 
@@ -110,7 +116,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` | 事件名 |
+| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
 | `fn` | `Function` | 接收函数 |
 
 #### Returns
@@ -119,4 +125,4 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:22
+channel/EventBus.ts:27

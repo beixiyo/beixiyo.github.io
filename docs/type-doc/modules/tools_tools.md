@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:160
+tools/tools.ts:162
 
 ___
 
@@ -177,7 +177,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:294
+tools/tools.ts:296
 
 ___
 
@@ -213,7 +213,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:253
+tools/tools.ts:255
 
 ___
 
@@ -272,7 +272,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:272
+tools/tools.ts:274
 
 ___
 
@@ -308,7 +308,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:234
+tools/tools.ts:236
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:224
+tools/tools.ts:226
 
 ___
 
@@ -410,7 +410,7 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:210
+tools/tools.ts:212
 
 ___
 
@@ -419,8 +419,8 @@ ___
 ▸ **padEmptyObj**\<`T`\>(`data`, `config?`): `T`
 
 把对象的空值转为指定字符串，默认 `--`  
-包含 空白字符串、null、undefined 等  
-默认不包含数值或字符串 0，可通过配置修改
+包含 空字符串、空格、null、undefined 等  
+默认不包含数值 0，可通过配置修改
 
 #### Type parameters
 
@@ -430,12 +430,12 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `T` |
-| `config?` | `Object` |
-| `config.ignoreNum?` | `boolean` |
-| `config.padStr?` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `T` | - |
+| `config?` | `Object` | - |
+| `config.ignoreNum?` | `boolean` | 忽略数字 0，默认 true |
+| `config.padStr?` | `string` | 要填补的字符串，默认 -- |
 
 #### Returns
 
@@ -469,7 +469,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:186
+tools/tools.ts:188
 
 ___
 
@@ -515,4 +515,4 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:151
+tools/tools.ts:153

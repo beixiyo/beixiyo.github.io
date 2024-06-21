@@ -75,7 +75,7 @@ aTo
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `target` | `T` | 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px` |
+| `target` | () => `any` \| `T` | 要修改的对象，可以是一个函数（用来获取同一个对象不同时间的值）。如果是`CSSStyleDeclaration`对象，则单位默认为`px` |
 | `finalProps` | `P` | 要修改对象的最终属性值 |
 | `durationMS` | `number` | 动画持续时间 |
 | `opt?` | `AnimationOpt`\<`T`, `P`\> | 配置项 可选参数 |
@@ -88,7 +88,7 @@ aTo
 
 #### Defined in
 
-animation/ATo.ts:69
+animation/ATo.ts:70
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:50
+animation/ATo.ts:51
 
 ___
 
@@ -138,4 +138,4 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:80
+animation/ATo.ts:81

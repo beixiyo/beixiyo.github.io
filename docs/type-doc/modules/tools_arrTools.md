@@ -12,6 +12,7 @@
 - [getPageData](tools_arrTools.md#getpagedata)
 - [getSum](tools_arrTools.md#getsum)
 - [groupBy](tools_arrTools.md#groupby)
+- [searchTreeData](tools_arrTools.md#searchtreedata)
 
 ## Functions
 
@@ -19,7 +20,7 @@
 
 ▸ **arrToChunk**\<`T`\>(`arr`, `size`): `T`[][]
 
-把数组分成 n 块
+把数组分成 n 块，空数组直接返回，其他情况均返回二维数组
 
 #### Type parameters
 
@@ -42,7 +43,7 @@
 
 #### Defined in
 
-tools/arrTools.ts:229
+tools/arrTools.ts:284
 
 ___
 
@@ -84,7 +85,7 @@ const treeData = arrToTree(arr)
 
 #### Defined in
 
-tools/arrTools.ts:187
+tools/arrTools.ts:199
 
 ___
 
@@ -111,9 +112,11 @@ ___
 
 `number`
 
+索引，找不到返回 -1
+
 #### Defined in
 
-tools/arrTools.ts:242
+tools/arrTools.ts:300
 
 ___
 
@@ -180,7 +183,8 @@ ___
 
 ▸ **groupBy**\<`T`\>(`data`, `key`, `operateKey`, `action?`, `enableParseFloat?`, `enableDeepClone?`): `any`[]
 
-给定一个数组，根据 key 进行分组  
+给定一个数组，根据 key 进行分组
+
 分组内容默认放入数组中，你也可以指定为 `'+' | '-' | '*' | '/' | '**'` 进行相应的操作  
 
 你也可以把整个对象进行分组（设置 `operateKey` 为 `null`），他会把整个对象放入数组。而不是进行 加减乘除 等操作
@@ -216,4 +220,34 @@ groupBy(input, 'type', null) => [ { type: 'chinese', children: [{ ... }] }, ... 
 
 #### Defined in
 
-tools/arrTools.ts:52
+tools/arrTools.ts:53
+
+___
+
+### searchTreeData
+
+▸ **searchTreeData**\<`T`\>(`keyword`, `data`, `opts?`): `T`[]
+
+树形结构搜索
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Object` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `keyword` | `string` | 搜索关键字 |
+| `data` | `T`[] | 数据 |
+| `opts` | `SearchOpts` | 配置项，包含搜索字段和是否忽略大小写 |
+
+#### Returns
+
+`T`[]
+
+#### Defined in
+
+tools/arrTools.ts:241

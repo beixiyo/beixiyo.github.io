@@ -54,7 +54,7 @@ ___
 
 ### notify
 
-▸ **notify**(`data`): `void`
+▸ **notify**(`...args`): `void`
 
 通知所有观察者
 
@@ -62,7 +62,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `any` |
+| `...args` | `any`[] |
 
 #### Returns
 

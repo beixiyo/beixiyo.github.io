@@ -73,7 +73,7 @@ types/base.ts:8
 
 #### Defined in
 
-canvas/tools.ts:9
+canvas/tools.ts:10
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:27
+canvas/tools.ts:24
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:86
+canvas/tools.ts:83
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:45
+canvas/tools.ts:42
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:69
+canvas/tools.ts:66
 
 ___
 

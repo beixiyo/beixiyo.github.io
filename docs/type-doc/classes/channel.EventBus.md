@@ -10,7 +10,7 @@
 
 - **`EventBus`**
 
-  ↳ [`WS`](http.WS.md)
+  ↳ [`WS`](net.WS.md)
 
 ## Table of contents
 

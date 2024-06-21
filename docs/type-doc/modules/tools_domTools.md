@@ -50,7 +50,7 @@
 
 #### Defined in
 
-tools/domTools.ts:327
+tools/domTools.ts:332
 
 ___
 
@@ -96,13 +96,13 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:145
+tools/domTools.ts:150
 
 ___
 
 ### debounce
 
-▸ **debounce**\<`P`, `T`, `R`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `void`
+▸ **debounce**\<`R`, `T`, `P`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `void`
 
 防抖
 
@@ -110,16 +110,16 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `P` | extends `any`[] |
-| `T` | `T` |
 | `R` | `R` |
+| `T` | `T` |
+| `P` | extends `any`[] |
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` |
-| `delay` | `number` | `200` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` | - |
+| `delay` | `number` | `200` | 延迟时间（ms），@default 200 |
 
 #### Returns
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:113
+tools/domTools.ts:118
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:255
+tools/domTools.ts:260
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:290
+tools/domTools.ts:295
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:155
+tools/domTools.ts:160
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:238
+tools/domTools.ts:243
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:132
+tools/domTools.ts:137
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:142
+tools/domTools.ts:147
 
 ___
 
@@ -352,7 +352,7 @@ ___
 
 ▸ **handleCssUnit**(`value`): `string` \| `number`
 
-处理`CSS`单位
+处理 `CSS` 单位，如果可以转换成数字，则添加 px
 
 #### Parameters
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:148
+tools/domTools.ts:153
 
 ___
 
@@ -398,7 +398,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:151
+tools/domTools.ts:156
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:217
+tools/domTools.ts:222
 
 ___
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:179
+tools/domTools.ts:184
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
@@ -488,7 +488,7 @@ tools/domTools.ts:179
 
 #### Defined in
 
-tools/domTools.ts:179
+tools/domTools.ts:184
 
 ___
 
@@ -496,7 +496,7 @@ ___
 
 ▸ **pxToVw**(`px`, `designSize?`, `unit?`): `string` \| `number`
 
-将像素值转换为`vw`或`vh`单位 如果传入百分比值 则直接返回
+将像素值转换为`vw`或`vh`单位，如果传入百分比值，则直接返回
 
 #### Parameters
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:128
+tools/domTools.ts:133
 
 ___
 
@@ -559,13 +559,13 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:279
+tools/domTools.ts:284
 
 ___
 
 ### throttle
 
-▸ **throttle**\<`P`, `T`, `R`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `R`
+▸ **throttle**\<`R`, `T`, `P`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `R`
 
 节流
 
@@ -573,16 +573,16 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `P` | extends `any`[] |
-| `T` | `T` |
 | `R` | `R` |
+| `T` | `T` |
+| `P` | extends `any`[] |
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` |
-| `delay` | `number` | `200` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` | - |
+| `delay` | `number` | `200` | 延迟时间（ms），@default 200 |
 
 #### Returns
 
@@ -603,4 +603,4 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:97
+tools/domTools.ts:99

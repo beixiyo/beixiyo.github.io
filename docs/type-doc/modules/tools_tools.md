@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:162
+tools/tools.ts:172
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:91
+tools/tools.ts:101
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:23
+tools/tools.ts:33
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **deepCompare**(`o1`, `o2`, `seen?`): `boolean`
 
-深度比较对象 `Map | Set`无法使用  
+深度比较对象 `Map | Set` 无法使用  
 支持循环引用比较
 
 #### Parameters
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:44
+tools/tools.ts:54
 
 ___
 
@@ -177,7 +177,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:296
+tools/tools.ts:306
 
 ___
 
@@ -213,7 +213,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:255
+tools/tools.ts:265
 
 ___
 
@@ -272,7 +272,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:274
+tools/tools.ts:284
 
 ___
 
@@ -308,7 +308,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:236
+tools/tools.ts:246
 
 ___
 
@@ -335,22 +335,23 @@ ___
 
 #### Defined in
 
-tools/tools.ts:226
+tools/tools.ts:236
 
 ___
 
 ### getRandomNum
 
-▸ **getRandomNum**(`min`, `max`): `number`
+▸ **getRandomNum**(`min`, `max`, `enableFloat?`): `number`
 
-获取随机范围整型数值 不包含最大值
+获取随机范围数值，不包含最大值
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `min` | `number` |
-| `max` | `number` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `min` | `number` | `undefined` | 最小值 |
+| `max` | `number` | `undefined` | 最大值 |
+| `enableFloat` | `boolean` | `false` | 是否返回浮点数，默认 false |
 
 #### Returns
 
@@ -358,7 +359,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:18
+tools/tools.ts:21
 
 ___
 
@@ -410,7 +411,7 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:212
+tools/tools.ts:222
 
 ___
 
@@ -443,7 +444,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:109
+tools/tools.ts:119
 
 ___
 
@@ -469,7 +470,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:188
+tools/tools.ts:198
 
 ___
 
@@ -515,4 +516,4 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:153
+tools/tools.ts:163

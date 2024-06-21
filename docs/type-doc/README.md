@@ -1,32 +1,40 @@
 @jl-org/tool / [Modules](modules.md)
 
 # 介绍
-TypeScript编写的工具函数
+
+*TypeScript* 编写的工具函数
 
 支持 `ESM` | `CommonJS` | `iife`
 
 **iife** 模式下，全局导出一个 `_jl` 对象
+
+---
 
 ## 安装
 ```bash
 npm i @jl-org/tool
 ```
 
-## 文档地址
-> 其实不如看 *VSCode* 的代码提示方便。  
+---
 
-**鼠标悬浮在变量上即可查看，几乎所有地方我都写了文档注释**
+## 文档地址
 
 https://beixiyo.github.io/
 
-## 包含如下类型工具
+> 其实不如看 *VSCode* 的代码提示方便  
+**鼠标悬浮在变量上即可查看，几乎所有地方我都写了文档注释**
+
+---
+
+## 工具目录
+
 - [各种常用工具](#各种常用工具)
 - [网络请求工具，如最大并发，自动重试、自动重连的 ws 等](#网络请求工具)
-- [数组处理](#数组处理)
+- [数组处理，包含扁平数组转树，树搜索...](#数组处理)
 - [颜色处理](#颜色处理)
 - [日期处理](#日期处理)
 - [DOM 处理](#dom)
-- [文件处理，如 Base64 和 Blob 互转、下载文件](#files)
+- [文件处理，如 Base64 和 Blob 互转、下载文件](#文件处理)
 - [分时渲染函数，再多函数也不卡顿](#分时渲染函数)
 - [Media API，如录屏、录音、文字语音互转](#media-api)
 - [一些数据结构，如：最小堆](#数据结构)
@@ -35,6 +43,7 @@ https://beixiyo.github.io/
 - [*is* 判断](#is-判断)
 - [canvas，可以压缩图片，截取部分图片...](#canvas)
 - [*Web* 小插件，如：客户端同步服务器更新](#web-小插件)
+- [常用常量](#常量)
 
 ## 各种常用工具
 ```ts
@@ -51,9 +60,12 @@ export declare const celsiusToFahrenheit: (celsius: number) => number;
 export declare const fahrenheitToCelsius: (fahrenheit: number) => number;
 
 /**
- * 获取随机范围整型数值 不包含最大值
+ * 获取随机范围数值，不包含最大值
+ * @param min 最小值
+ * @param max 最大值
+ * @param enableFloat 是否返回浮点数，默认 false
  */
-export declare function getRandomNum(min: number, max: number): number;
+export declare function getRandomNum(min: number, max: number, enableFloat?: boolean): number;
 
 /** 深拷贝 */
 export declare function deepClone<T>(data: T, map?: WeakMap<WeakKey, any>): T;
@@ -268,14 +280,27 @@ const treeData = arrToTree(arr)
 export declare function arrToTree<T extends TreeItem>(arr: T[]): TreeData<T>[];
 
 /**
- * 把数组分成 n 块
+ * 树形结构搜索
+ * @param keyword 搜索关键字
+ * @param data 数据
+ * @param opts 配置项，包含搜索字段和是否忽略大小写
+ */
+export declare function searchTreeData<T extends {
+    children?: T[];
+}>(keyword: string, data: T[], opts?: SearchOpts): T[];
+
+/**
+ * 把数组分成 n 块，空数组直接返回，其他情况均返回二维数组
  * @param arr 数组
  * @param size 每个数组大小
  * @returns 返回二维数组
  */
 export declare function arrToChunk<T>(arr: T[], size: number): T[][];
 
-/** 二分查找，必须是正序的数组 */
+/**
+ * 二分查找，必须是正序的数组
+ * @returns 索引，找不到返回 -1
+ */
 export declare function binarySearch<T>(arr: T[], target: T): number;
 ```
 
@@ -296,11 +321,11 @@ export declare function hexColorToRaw(color: string): string;
 /** 十六进制 转 RGB */
 export declare function hexToRGB(color: string): string;
 
-/** rgb转十六进制 */
+/** RGB 转十六进制 */
 export declare function rgbToHex(color: string): string;
 
 /**
- * 淡化颜色透明度 支持`rgb`和十六进制
+ * 淡化颜色透明度，支持 `RGB` 和 `十六进制`
  * @param color rgba(0, 239, 255, 1)
  * @param strength 淡化的强度
  * @returns 返回 RGBA 类似如下格式的颜色 `rgba(0, 0, 0, 0.1)`
@@ -308,7 +333,7 @@ export declare function rgbToHex(color: string): string;
 export declare function lightenColor(color: string, strength?: number): string;
 
 /**
- * 颜色添加透明度 支持`rgb`和十六进制
+ * 颜色添加透明度，支持 `RGB` 和 `十六进制`
  * @param color 颜色
  * @param opacity 透明度
  * @returns 返回十六进制 类似如下格式的颜色 `#ffffff11`
@@ -403,7 +428,7 @@ export declare const matchProtocol: (url: string) => string;
  */
 export declare const adaptPx: (px: number | string, designSize?: number, type?: 'height' | 'width') => string;
 
-/** 处理`CSS`单位 */
+/** 处理 `CSS` 单位，如果可以转换成数字，则添加 px */
 export declare function handleCssUnit(value: string | number): string | number;
 
 /**
@@ -423,11 +448,17 @@ export declare function pxToVw(px: number | string, designSize?: number, unit?: 
  */
 export declare const getStyle: (el: HTMLElement, attr: string, pseudoElt?: string) => string | number;
 
-/** 节流 */
-export declare function throttle<P extends any[], T, R>(fn: (this: T, ...args: P) => R, delay?: number): (this: T, ...args: P) => R;
+/**
+ * 节流
+ * @param delay 延迟时间（ms），@default 200
+ */
+export declare function throttle<R, T, P extends any[]>(fn: (this: T, ...args: P) => R, delay?: number): (this: T, ...args: P) => R;
 
-/** 防抖 */
-export declare function debounce<P extends any[], T, R>(fn: (this: T, ...args: P) => R, delay?: number): (this: T, ...args: P) => void;
+/**
+ * 防抖
+ * @param delay 延迟时间（ms），@default 200
+ */
+export declare function debounce<R, T, P extends any[]>(fn: (this: T, ...args: P) => R, delay?: number): (this: T, ...args: P) => void;
 
 /** 设置 LocalStorage，无需手动序列化 */
 export declare function setLocalStorage(key: string, value: any): void;
@@ -491,7 +522,7 @@ export declare const fullScreen: (dom?: HTMLElement) => void;
 export declare const HTMLToStr: (HTMLStr: string) => string;
 ```
 
-## files
+## 文件处理
 ```ts
 /**
  * 用 `Blob` 下载
@@ -766,23 +797,22 @@ export declare class ATo {
      * @param opt 配置项 可选参数
      * @returns 返回一个停止动画函数
      */
-    start<T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
 
+    start<T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
     /**
      * 等待上一个动画完成后执行 ***第一次请先调用`start`函数***
-     * @param target 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px`
+     * @param target 要修改的对象，可以是一个函数（用来获取同一个对象不同时间的值）。如果是`CSSStyleDeclaration`对象，则单位默认为`px`
      * @param finalProps 要修改对象的最终属性值
      * @param durationMS 动画持续时间
      * @param opt 配置项 可选参数
      * @returns 返回一个停止动画函数
      */
-    next<T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
-
+    next<T, P extends FinalProp>(target: T | (() => any), finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
+    
     /** 停止所有动画 */
     stop(): void;
 
 }
-
 ```
 
 ## 事件分发
@@ -943,4 +973,41 @@ export type CutImgOpts = {
 ```ts
 /** 检查页面更新 */
 export declare function autoUpdate(opts?: Opts): void;
+```
+
+## 常量
+```ts
+/** Math.PI / 180 */
+export declare const DEG_1: number;
+export declare const DEG_30: number;
+export declare const DEG_45: number;
+export declare const DEG_60: number;
+
+export declare const DEG_90: number;
+export declare const DEG_180: number;
+export declare const DEG_270: number;
+export declare const DEG_360: number;
+
+/** 各种正则表达式 */
+export declare const Reg: {
+    /** 手机号正则 */
+    phone: RegExp;
+    /** rgb 颜色正则 */
+    rgb: RegExp;
+    /** 身份证正则 */
+    cardId: RegExp;
+    /** 中文正则 */
+    chinese: RegExp;
+    /**
+     * 数字转千分位正则
+     * @example
+     * "123456789".replace(Reg.numToLocaleString, ",")
+     */
+    numToLocaleString: RegExp;
+    /** 密码校验正则：必须包含数字、大小写字母、特殊字符，6-12 位 */
+    pwd: RegExp;
+};
+
+/** 一整天的毫秒 */
+export declare const ONE_DAY: number;
 ```

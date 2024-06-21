@@ -20,7 +20,7 @@
 
 ▸ **colorAddOpacity**(`color`, `opacity?`): `string`
 
-颜色添加透明度 支持`rgb`和十六进制
+颜色添加透明度，支持 `RGB` 和 `十六进制`
 
 #### Parameters
 
@@ -37,7 +37,7 @@
 
 #### Defined in
 
-tools/colorTools.ts:126
+tools/colorTools.ts:125
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 ▸ **lightenColor**(`color`, `strength?`): `string`
 
-淡化颜色透明度 支持`rgb`和十六进制
+淡化颜色透明度，支持 `RGB` 和 `十六进制`
 
 #### Parameters
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:93
+tools/colorTools.ts:92
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **rgbToHex**(`color`): `string`
 
-rgb转十六进制
+RGB 转十六进制
 
 #### Parameters
 
@@ -168,4 +168,4 @@ rgb转十六进制
 
 #### Defined in
 
-tools/colorTools.ts:66
+tools/colorTools.ts:65

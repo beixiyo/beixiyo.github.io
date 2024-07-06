@@ -33,6 +33,7 @@ https://beixiyo.github.io/
 - [数组处理，包含扁平数组转树，树搜索...](#数组处理)
 - [颜色处理](#颜色处理)
 - [日期处理](#日期处理)
+- [时钟，获取帧间隔、过去时间...](#时钟)
 - [DOM 处理](#dom)
 - [文件处理，如 Base64 和 Blob 互转、下载文件](#文件处理)
 - [分时渲染函数，再多函数也不卡顿](#分时渲染函数)
@@ -267,15 +268,15 @@ export declare function groupBy<T extends Record<BaseKey, any>>(data: T[], key: 
 /**
  * 扁平数组转递归树
  * @example
-const arr = [
-    { id: 1, name: '部门1', pid: 0 },
-    { id: 2, name: '部门2', pid: 1 },
-    { id: 3, name: '部门3', pid: 1 },
-    { id: 4, name: '部门4', pid: 3 },
-    { id: 5, name: '部门5', pid: 4 },
-    { id: 6, name: '部门6', pid: 1 },
-]
-const treeData = arrToTree(arr)
+ * const arr = [
+ *     { id: 1, name: '部门1', pid: 0 },
+ *     { id: 2, name: '部门2', pid: 1 },
+ *     { id: 3, name: '部门3', pid: 1 },
+ *     { id: 4, name: '部门4', pid: 3 },
+ *     { id: 5, name: '部门5', pid: 4 },
+ *     { id: 6, name: '部门6', pid: 1 },
+ * ]
+ * const treeData = arrToTree(arr)
  */
 export declare function arrToTree<T extends TreeItem>(arr: T[]): TreeData<T>[];
 
@@ -302,6 +303,15 @@ export declare function arrToChunk<T>(arr: T[], size: number): T[][];
  * @returns 索引，找不到返回 -1
  */
 export declare function binarySearch<T>(arr: T[], target: T): number;
+
+/**
+ * 生成一个指定大小的类型化数组，默认 `Float32Array`，并用指定的生成函数填充
+ * @param size 数组的长度
+ * @param genVal 一个生成数值的函数，用于填充数组
+ * @param ArrayFn 填充数组的构造函数，默认 `Float32Array`
+ * @returns 返回一个填充了指定生成函数数值的数组
+ */
+export declare function genTypedArr<T extends AllTypedArrConstructor = Float32ArrayConstructor>(size: number, genVal: (index: number) => number, ArrayFn?: T): ArrReturnType<T>;
 ```
 
 ## 颜色处理
@@ -408,6 +418,42 @@ export type TimeGapOpts = {
     /** 以后日期格式化 */
     afterFn?: (dateStr: string) => string;
 };
+```
+
+## 时钟
+```ts
+export declare class Clock {
+
+    /** 开始时间 */
+    startTime: number;
+    /** 当前时间 */
+    curTime: number;
+
+    /** 每帧时间间隔 */
+    delta: number;
+
+    /** 停止时间计算函数 */
+    stop: VoidFunction;
+
+    /**
+     * 利用 requestAnimationFrame 循环计算时间，可获取
+     * - 帧间时间间隔
+     * - 累计时间
+     * - 起始时间
+     * - 当前时间
+     * @param timeApi 用来选取获取时间的 Api，`performance` 更加精准（默认值）
+     */
+    constructor(timeApi?: 'performance' | 'date');
+
+    /** 开始计算时间，构造器默认调用一次 */
+    start(): void;
+    
+    /** 累计时间（毫秒） */
+    get elapsedMS(): number;
+    /** 累计时间（秒） */
+    get elapsed(): number;
+}
+
 ```
 
 ## DOM
@@ -744,14 +790,14 @@ export declare function createAnimation(stVal: number, endVal: number, animateSt
  * @param target 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px`
  * @param finalProps 要修改对象的最终属性值 不支持`transform`的复合属性
  * @param durationMS 动画持续时间
- * @param opt 配置项 可选参数; 动画单位优先级: `finalProps` > `opt.unit` > `rawEl(原始 DOM 的单位)`;
+ * @param animationOpts 配置项，可选参数; 动画单位优先级: `finalProps` > `option.unit` > `rawEl(原始 DOM 的单位)`;
  *
  * 如果 ***target 是 CSSStyleDeclaration*** 并且
  * ***不是 transform*** 属性 并且
  * ***样式表和 finalProps 都没有单位***，则使用 `px` 作为 `CSS` 单位
  * @returns 返回一个停止动画函数
  */
-export declare const createAnimationByTime: <T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>) => () => void;
+export declare const createAnimationByTime: <T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, animationOpts?: AnimationOpts<T, P>) => () => void;
 
 /**
  * 生成贝塞尔曲线函数
@@ -762,30 +808,31 @@ export declare function genTimeFunc(name?: TimeFunc): (v: number) => number;
 
 /**
  * 一个动画类 能够链式调用; 请先调用`start`函数, 参数和`createAnimationByTime`一致
-@example
-const aTo = new ATo()
-aTo
-    .start(
-        div1.style,
-        {
-            left: '200px',
-            top: '200px',
-            opacity: '0.1'
-        },
-        1000
-    )
-    .next(
-        div2.style,
-        {
-            translateX: '50vw',
-            translateY: '300px',
-        },
-        2000,
-        {
-            transform: true,
-            timeFunc: 'ease-in-out'
-        }
-    )
+ * @example
+ * const aTo = new ATo()
+ * aTo
+ *     .start(
+ *         div1.style,
+ *         {
+ *             left: '200px',
+ *             top: '200px',
+ *             opacity: '0.1'
+ *         },
+ *         1000
+ *     )
+ *     .next(
+ *         div2.style,
+ *         {
+ *             translateX: '50vw',
+ *             translateY: '300px',
+ *         },
+ *         2000,
+ *         {
+ *             transform: true,
+ *             timeFunc: 'ease-in-out'
+ *         }
+ *     )
+ * 
  */
 export declare class ATo {
 
@@ -794,20 +841,20 @@ export declare class ATo {
      * @param target 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px`
      * @param finalProps 要修改对象的最终属性值
      * @param durationMS 动画持续时间
-     * @param opt 配置项 可选参数
+     * @param animationOpts 配置项 可选参数
      * @returns 返回一个停止动画函数
      */
-
-    start<T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
+    start<T, P extends FinalProp>(target: T, finalProps: P, durationMS: number, animationOpts?: AnimationOpts<T, P>): this;
+    
     /**
      * 等待上一个动画完成后执行 ***第一次请先调用`start`函数***
      * @param target 要修改的对象，可以是一个函数（用来获取同一个对象不同时间的值）。如果是`CSSStyleDeclaration`对象，则单位默认为`px`
      * @param finalProps 要修改对象的最终属性值
      * @param durationMS 动画持续时间
-     * @param opt 配置项 可选参数
+     * @param animationOpts 配置项 可选参数
      * @returns 返回一个停止动画函数
      */
-    next<T, P extends FinalProp>(target: T | (() => any), finalProps: P, durationMS: number, opt?: AnimationOpt<T, P>): this;
+    next<T, P extends FinalProp>(target: T | (() => any), finalProps: P, durationMS: number, animationOpts?: AnimationOpts<T, P>): this;
     
     /** 停止所有动画 */
     stop(): void;

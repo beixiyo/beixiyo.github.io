@@ -45,7 +45,7 @@
 
 #### Defined in
 
-net/WS.ts:251
+net/WS.ts:256
 
 ## Functions
 

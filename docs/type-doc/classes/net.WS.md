@@ -70,7 +70,7 @@ ws.onmessage(() => { ... })
 
 #### Defined in
 
-net/WS.ts:54
+net/WS.ts:55
 
 ## Properties
 
@@ -88,7 +88,7 @@ net/WS.ts:54
 
 ```ts
 {
-     *      __WS_ID__: '唯一id',
+     *      __WS_ID__: Date.now().toString(),
      *      message: '消息内容'
      * }
 ```
@@ -145,7 +145,7 @@ net/WS.ts:19
 
 #### Defined in
 
-net/WS.ts:109
+net/WS.ts:110
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:91
+net/WS.ts:92
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:67
+net/WS.ts:68
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:70
+net/WS.ts:71
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:64
+net/WS.ts:65
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:61
+net/WS.ts:62
 
 ___
 
@@ -383,7 +383,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` \| `Blob` \| `ArrayBufferView` \| `ArrayBufferLike` |
+| `message` | `string` \| `ArrayBufferLike` \| `Blob` \| `ArrayBufferView` |
 
 #### Returns
 
@@ -391,4 +391,4 @@ ___
 
 #### Defined in
 
-net/WS.ts:74
+net/WS.ts:75

@@ -9,6 +9,7 @@
 - [arrToChunk](tools_arrTools.md#arrtochunk)
 - [arrToTree](tools_arrTools.md#arrtotree)
 - [binarySearch](tools_arrTools.md#binarysearch)
+- [genTypedArr](tools_arrTools.md#gentypedarr)
 - [getPageData](tools_arrTools.md#getpagedata)
 - [getSum](tools_arrTools.md#getsum)
 - [groupBy](tools_arrTools.md#groupby)
@@ -43,7 +44,7 @@
 
 #### Defined in
 
-tools/arrTools.ts:284
+tools/arrTools.ts:282
 
 ___
 
@@ -73,19 +74,19 @@ ___
 
 ```ts
 const arr = [
-   { id: 1, name: '部门1', pid: 0 },
-   { id: 2, name: '部门2', pid: 1 },
-   { id: 3, name: '部门3', pid: 1 },
-   { id: 4, name: '部门4', pid: 3 },
-   { id: 5, name: '部门5', pid: 4 },
-   { id: 6, name: '部门6', pid: 1 },
+    { id: 1, name: '部门1', pid: 0 },
+    { id: 2, name: '部门2', pid: 1 },
+    { id: 3, name: '部门3', pid: 1 },
+    { id: 4, name: '部门4', pid: 3 },
+    { id: 5, name: '部门5', pid: 4 },
+    { id: 6, name: '部门6', pid: 1 },
 ]
 const treeData = arrToTree(arr)
 ```
 
 #### Defined in
 
-tools/arrTools.ts:199
+tools/arrTools.ts:197
 
 ___
 
@@ -116,7 +117,39 @@ ___
 
 #### Defined in
 
-tools/arrTools.ts:300
+tools/arrTools.ts:298
+
+___
+
+### genTypedArr
+
+▸ **genTypedArr**\<`T`\>(`size`, `genVal`, `ArrayFn?`): `ArrReturnType`\<`T`\>
+
+生成一个指定大小的类型化数组，默认 `Float32Array`，并用指定的生成函数填充
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `AllTypedArrConstructor` = `Float32ArrayConstructor` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | 数组的长度 |
+| `genVal` | (`index`: `number`) => `number` | 一个生成数值的函数，用于填充数组 |
+| `ArrayFn` | `T` | 填充数组的构造函数，默认 `Float32Array` |
+
+#### Returns
+
+`ArrReturnType`\<`T`\>
+
+返回一个填充了指定生成函数数值的数组
+
+#### Defined in
+
+tools/arrTools.ts:325
 
 ___
 
@@ -250,4 +283,4 @@ ___
 
 #### Defined in
 
-tools/arrTools.ts:241
+tools/arrTools.ts:239

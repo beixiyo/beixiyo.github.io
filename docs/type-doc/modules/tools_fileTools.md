@@ -92,7 +92,7 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `data` | `Blob` \| `ArrayBuffer` | `undefined` | 数据 |
+| `data` | `ArrayBuffer` \| `Blob` | `undefined` | 数据 |
 | `encode` | `string` | `'utf-8'` | 编码格式，默认 utf-8 |
 
 #### Returns

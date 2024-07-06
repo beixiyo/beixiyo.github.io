@@ -13,6 +13,7 @@
 - [net](modules/net.md)
 - [plugins](modules/plugins.md)
 - [shared](modules/shared.md)
+- [tools/Clock](modules/tools_Clock.md)
 - [tools/arrTools](modules/tools_arrTools.md)
 - [tools/colorTools](modules/tools_colorTools.md)
 - [tools/dateTools](modules/tools_dateTools.md)

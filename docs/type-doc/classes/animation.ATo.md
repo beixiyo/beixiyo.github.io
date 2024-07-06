@@ -11,27 +11,27 @@
 ```ts
 const aTo = new ATo()
 aTo
-   .start(
-       div1.style,
-       {
-           left: '200px',
-           top: '200px',
-           opacity: '0.1'
-       },
-       1000
-   )
-   .next(
-       div2.style,
-       {
-           translateX: '50vw',
-           translateY: '300px',
-       },
-       2000,
-       {
-           transform: true,
-           timeFunc: 'ease-in-out'
-       }
-   )
+    .start(
+        div1.style,
+        {
+            left: '200px',
+            top: '200px',
+            opacity: '0.1'
+        },
+        1000
+    )
+    .next(
+        div2.style,
+        {
+            translateX: '50vw',
+            translateY: '300px',
+        },
+        2000,
+        {
+            transform: true,
+            timeFunc: 'ease-in-out'
+        }
+    )
 ```
 
 ## Table of contents
@@ -60,7 +60,7 @@ aTo
 
 ### next
 
-▸ **next**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `opt?`): [`ATo`](animation.ATo.md)
+▸ **next**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `animationOpts?`): [`ATo`](animation.ATo.md)
 
 等待上一个动画完成后执行 ***第一次请先调用`start`函数***
 
@@ -78,7 +78,7 @@ aTo
 | `target` | () => `any` \| `T` | 要修改的对象，可以是一个函数（用来获取同一个对象不同时间的值）。如果是`CSSStyleDeclaration`对象，则单位默认为`px` |
 | `finalProps` | `P` | 要修改对象的最终属性值 |
 | `durationMS` | `number` | 动画持续时间 |
-| `opt?` | `AnimationOpt`\<`T`, `P`\> | 配置项 可选参数 |
+| `animationOpts?` | `AnimationOpts`\<`T`, `P`\> | 配置项 可选参数 |
 
 #### Returns
 
@@ -88,13 +88,13 @@ aTo
 
 #### Defined in
 
-animation/ATo.ts:70
+animation/ATo.ts:69
 
 ___
 
 ### start
 
-▸ **start**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `opt?`): [`ATo`](animation.ATo.md)
+▸ **start**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `animationOpts?`): [`ATo`](animation.ATo.md)
 
 开始执行动画 首次执行请先调用此函数
 
@@ -112,7 +112,7 @@ ___
 | `target` | `T` | 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px` |
 | `finalProps` | `P` | 要修改对象的最终属性值 |
 | `durationMS` | `number` | 动画持续时间 |
-| `opt?` | `AnimationOpt`\<`T`, `P`\> | 配置项 可选参数 |
+| `animationOpts?` | `AnimationOpts`\<`T`, `P`\> | 配置项 可选参数 |
 
 #### Returns
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:51
+animation/ATo.ts:50
 
 ___
 
@@ -138,4 +138,4 @@ ___
 
 #### Defined in
 
-animation/ATo.ts:81
+animation/ATo.ts:80

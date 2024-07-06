@@ -85,7 +85,7 @@ ___
 
 ### createAnimationByTime
 
-▸ **createAnimationByTime**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `opt?`): () => `void`
+▸ **createAnimationByTime**\<`T`, `P`\>(`target`, `finalProps`, `durationMS`, `animationOpts?`): () => `void`
 
 根据传入对象 随着时间推移 自动更新值
 
@@ -103,7 +103,7 @@ ___
 | `target` | `T` | 要修改的对象 如果是`CSSStyleDeclaration`对象 则单位默认为`px` |
 | `finalProps` | `P` | 要修改对象的最终属性值 不支持`transform`的复合属性 |
 | `durationMS` | `number` | 动画持续时间 |
-| `opt?` | `AnimationOpt`\<`T`, `P`\> | 配置项 可选参数; 动画单位优先级: `finalProps` > `opt.unit` > `rawEl(原始 DOM 的单位)`; 如果 ***target 是 CSSStyleDeclaration*** 并且 ***不是 transform*** 属性 并且 ***样式表和 finalProps 都没有单位***，则使用 `px` 作为 `CSS` 单位 |
+| `animationOpts?` | `AnimationOpts`\<`T`, `P`\> | 配置项，可选参数; 动画单位优先级: `finalProps` > `option.unit` > `rawEl(原始 DOM 的单位)`; 如果 ***target 是 CSSStyleDeclaration*** 并且 ***不是 transform*** 属性 并且 ***样式表和 finalProps 都没有单位***，则使用 `px` 作为 `CSS` 单位 |
 
 #### Returns
 

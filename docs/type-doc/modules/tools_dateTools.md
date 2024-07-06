@@ -29,7 +29,7 @@
 
 ### DateFormat
 
-Ƭ **DateFormat**: (`dateInfo`: [`DateInfo`](../interfaces/tools_dateTools.DateInfo.md)) => `string` \| ``"yyyy-MM-dd"`` \| ``"yyyy-MM-dd HH"`` \| ``"yyyy-MM-dd HH:mm"`` \| ``"yyyy-MM-dd HH:mm:ss"`` \| ``"yyyy-MM-dd HH:mm:ss:ms"`` \| ``"yyyy-MM-dd 00:00"`` \| ``"yyyy-MM-dd 00:00:00"`` \| ``"yyyy-MM-dd 23:59"`` \| ``"yyyy-MM-dd 23:59:59"``
+Ƭ **DateFormat**: (`dateInfo`: [`DateInfo`](../interfaces/tools_dateTools.DateInfo.md)) => `string` \| ``"yyyy-MM-dd"`` \| ``"yyyy-MM-dd HH"`` \| ``"yyyy-MM-dd HH:mm"`` \| ``"yyyy-MM-dd HH:mm:ss"`` \| ``"yyyy-MM-dd HH:mm:ss:ms"`` \| ``"yyyy-MM-dd 00:00"`` \| ``"yyyy-MM-dd 00:00:00"`` \| ``"yyyy-MM-dd 23:59"`` \| ``"yyyy-MM-dd 23:59:59"`` \| `string` & {}
 
 #### Defined in
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:220
+tools/dateTools.ts:221
 
 ## Functions
 
@@ -110,7 +110,7 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `formatter` | [`DateFormat`](tools_dateTools.md#dateformat) | `'yyyy-MM-dd HH:mm:ss'` | 格式化函数或者字符串 |
+| `formatter` | [`DateFormat`](tools_dateTools.md#dateformat) | `'yyyy-MM-dd HH:mm:ss'` | 格式化函数或者字符串，默认 `yyyy-MM-dd HH:mm:ss` |
 | `date?` | `Date` | `undefined` | 日期，默认当前时间 |
 | `padZero` | `boolean` | `true` | 是否补零，默认 true |
 

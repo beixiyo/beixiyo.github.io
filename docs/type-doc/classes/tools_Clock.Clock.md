@@ -14,6 +14,7 @@
 
 - [curTime](tools_Clock.Clock.md#curtime)
 - [delta](tools_Clock.Clock.md#delta)
+- [deltaMS](tools_Clock.Clock.md#deltams)
 - [startTime](tools_Clock.Clock.md#starttime)
 - [stop](tools_Clock.Clock.md#stop)
 
@@ -42,7 +43,7 @@
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `timeApi` | ``"date"`` \| ``"performance"`` | `'performance'` | 用来选取获取时间的 Api，`performance` 更加精准（默认值） |
+| `timeApi` | ``"performance"`` \| ``"date"`` | `'performance'` | 用来选取获取时间的 Api，`performance` 更加精准（默认值） |
 
 #### Returns
 
@@ -50,7 +51,7 @@
 
 #### Defined in
 
-tools/Clock.ts:27
+[src/tools/Clock.ts:29](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L29)
 
 ## Properties
 
@@ -62,7 +63,7 @@ tools/Clock.ts:27
 
 #### Defined in
 
-tools/Clock.ts:11
+[src/tools/Clock.ts:11](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L11)
 
 ___
 
@@ -74,7 +75,19 @@ ___
 
 #### Defined in
 
-tools/Clock.ts:14
+[src/tools/Clock.ts:14](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L14)
+
+___
+
+### deltaMS
+
+• **deltaMS**: `number` = `0`
+
+每帧时间间隔（毫秒）
+
+#### Defined in
+
+[src/tools/Clock.ts:16](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L16)
 
 ___
 
@@ -86,7 +99,7 @@ ___
 
 #### Defined in
 
-tools/Clock.ts:9
+[src/tools/Clock.ts:9](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L9)
 
 ___
 
@@ -98,7 +111,7 @@ ___
 
 #### Defined in
 
-tools/Clock.ts:17
+[src/tools/Clock.ts:19](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L19)
 
 ## Accessors
 
@@ -114,7 +127,7 @@ tools/Clock.ts:17
 
 #### Defined in
 
-tools/Clock.ts:58
+[src/tools/Clock.ts:62](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L62)
 
 ___
 
@@ -130,7 +143,7 @@ ___
 
 #### Defined in
 
-tools/Clock.ts:53
+[src/tools/Clock.ts:57](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L57)
 
 ## Methods
 
@@ -146,4 +159,4 @@ tools/Clock.ts:53
 
 #### Defined in
 
-tools/Clock.ts:41
+[src/tools/Clock.ts:43](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/Clock.ts#L43)

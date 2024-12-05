@@ -47,7 +47,7 @@ speakTxtBtn.onclick = () => speakToTxt.start()
 
 #### Defined in
 
-webApi/SpeakToTxt.ts:19
+[src/webApi/SpeakToTxt.ts:21](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/SpeakToTxt.ts#L21)
 
 ## Methods
 
@@ -63,7 +63,7 @@ webApi/SpeakToTxt.ts:19
 
 #### Defined in
 
-webApi/SpeakToTxt.ts:36
+[src/webApi/SpeakToTxt.ts:38](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/SpeakToTxt.ts#L38)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-webApi/SpeakToTxt.ts:42
+[src/webApi/SpeakToTxt.ts:44](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/SpeakToTxt.ts#L44)

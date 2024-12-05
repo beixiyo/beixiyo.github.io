@@ -1,10 +1,16 @@
 [@jl-org/tool](../README.md) / [Modules](../modules.md) / [channel](../modules/channel.md) / EventBus
 
-# Class: EventBus
+# Class: EventBus\<T\>
 
 [channel](../modules/channel.md).EventBus
 
 消息订阅与派发，订阅和派发指定消息
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `BaseKey` = `BaseKey` |
 
 ## Hierarchy
 
@@ -29,11 +35,17 @@
 
 ### constructor
 
-• **new EventBus**(): [`EventBus`](channel.EventBus.md)
+• **new EventBus**\<`T`\>(): [`EventBus`](channel.EventBus.md)\<`T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `string` \| `number` \| `symbol` = `string` \| `number` \| `symbol` |
 
 #### Returns
 
-[`EventBus`](channel.EventBus.md)
+[`EventBus`](channel.EventBus.md)\<`T`\>
 
 ## Methods
 
@@ -47,7 +59,7 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
+| `eventName` | `T` | 事件名 |
 | `...args` | `any`[] | 不定参数 |
 
 #### Returns
@@ -56,7 +68,7 @@
 
 #### Defined in
 
-channel/EventBus.ts:36
+[src/channel/EventBus.ts:36](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L36)
 
 ___
 
@@ -70,7 +82,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName?` | `string` \| `number` \| `symbol` | 空字符或者不传代表重置所有 |
+| `eventName?` | `T` | 不传代表重置所有 |
 | `func?` | `Function` | 要取关的函数，为空取关该事件的所有函数 |
 
 #### Returns
@@ -79,7 +91,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:53
+[src/channel/EventBus.ts:53](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L53)
 
 ___
 
@@ -93,7 +105,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
+| `eventName` | `T` | 事件名 |
 | `fn` | `Function` | 接收函数 |
 
 #### Returns
@@ -102,7 +114,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:18
+[src/channel/EventBus.ts:18](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L18)
 
 ___
 
@@ -116,7 +128,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName` | `string` \| `number` \| `symbol` | 事件名 |
+| `eventName` | `T` | 事件名 |
 | `fn` | `Function` | 接收函数 |
 
 #### Returns
@@ -125,4 +137,4 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:27
+[src/channel/EventBus.ts:27](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L27)

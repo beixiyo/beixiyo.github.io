@@ -10,7 +10,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `HeapItem` |
+| `T` | extends [`HeapItem`](../interfaces/dataStructure.HeapItem.md) |
 
 ## Table of contents
 
@@ -43,7 +43,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `HeapItem` |
+| `T` | extends [`HeapItem`](../interfaces/dataStructure.HeapItem.md) |
 
 #### Returns
 
@@ -51,7 +51,7 @@
 
 #### Defined in
 
-dataStructure/Heap.ts:120
+[src/dataStructure/Heap.ts:120](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L120)
 
 ## Properties
 
@@ -61,7 +61,7 @@ dataStructure/Heap.ts:120
 
 #### Defined in
 
-dataStructure/Heap.ts:118
+[src/dataStructure/Heap.ts:118](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L118)
 
 ## Accessors
 
@@ -75,7 +75,7 @@ dataStructure/Heap.ts:118
 
 #### Defined in
 
-dataStructure/Heap.ts:124
+[src/dataStructure/Heap.ts:124](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L124)
 
 ## Methods
 
@@ -89,7 +89,7 @@ dataStructure/Heap.ts:124
 
 #### Defined in
 
-dataStructure/Heap.ts:128
+[src/dataStructure/Heap.ts:128](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L128)
 
 ___
 
@@ -105,23 +105,23 @@ ___
 
 #### Defined in
 
-dataStructure/Heap.ts:133
+[src/dataStructure/Heap.ts:133](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L133)
 
 ___
 
 ### pop
 
-▸ **pop**(): `T`
+▸ **pop**(): `undefined` \| `T`
 
 删除并返回堆顶的值
 
 #### Returns
 
-`T`
+`undefined` \| `T`
 
 #### Defined in
 
-dataStructure/Heap.ts:142
+[src/dataStructure/Heap.ts:142](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L142)
 
 ___
 
@@ -141,4 +141,4 @@ ___
 
 #### Defined in
 
-dataStructure/Heap.ts:137
+[src/dataStructure/Heap.ts:137](https://github.com/beixiyo/jl-tool/blob/45e2229/src/dataStructure/Heap.ts#L137)

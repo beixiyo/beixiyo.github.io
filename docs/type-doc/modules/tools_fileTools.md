@@ -12,6 +12,7 @@
 - [dataToStr](tools_fileTools.md#datatostr)
 - [downloadByData](tools_fileTools.md#downloadbydata)
 - [downloadByUrl](tools_fileTools.md#downloadbyurl)
+- [urlToBlob](tools_fileTools.md#urltoblob)
 
 ## Functions
 
@@ -34,7 +35,7 @@ Base64 转 Blob
 
 #### Defined in
 
-tools/fileTools.ts:56
+[src/tools/fileTools.ts:54](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L54)
 
 ___
 
@@ -56,7 +57,7 @@ Blob 转 Base64
 
 #### Defined in
 
-tools/fileTools.ts:40
+[src/tools/fileTools.ts:38](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L38)
 
 ___
 
@@ -78,7 +79,7 @@ blob 转成 Stream，方便浏览器和 Node 互操作
 
 #### Defined in
 
-tools/fileTools.ts:76
+[src/tools/fileTools.ts:81](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L81)
 
 ___
 
@@ -92,7 +93,7 @@ ___
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `data` | `ArrayBuffer` \| `Blob` | `undefined` | 数据 |
+| `data` | `Blob` \| `ArrayBuffer` | `undefined` | 数据 |
 | `encode` | `string` | `'utf-8'` | 编码格式，默认 utf-8 |
 
 #### Returns
@@ -101,22 +102,22 @@ ___
 
 #### Defined in
 
-tools/fileTools.ts:100
+[src/tools/fileTools.ts:105](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L105)
 
 ___
 
 ### downloadByData
 
-▸ **downloadByData**(`data`, `filename`): `void`
+▸ **downloadByData**(`data`, `fileName?`): `void`
 
 用 `Blob` 下载
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `Blob` | 数据 |
-| `filename` | `string` | 文件名 |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `data` | `Blob` | `undefined` | 数据 |
+| `fileName` | `string` | `''` | 文件名 |
 
 #### Returns
 
@@ -124,13 +125,13 @@ ___
 
 #### Defined in
 
-tools/fileTools.ts:8
+[src/tools/fileTools.ts:8](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L8)
 
 ___
 
 ### downloadByUrl
 
-▸ **downloadByUrl**(`url`, `fileName`, `matchProto?`): `Promise`\<`void`\>
+▸ **downloadByUrl**(`url`, `fileName?`, `matchProto?`): `Promise`\<`void`\>
 
 用 url 下载
 
@@ -139,7 +140,7 @@ ___
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `url` | `string` | `undefined` | 链接 |
-| `fileName` | `string` | `undefined` | 文件名 |
+| `fileName` | `string` | `''` | 文件名 |
 | `matchProto` | `boolean` | `false` | 是否匹配协议，比如把 http 匹配为当前站的协议。默认 false |
 
 #### Returns
@@ -148,4 +149,26 @@ ___
 
 #### Defined in
 
-tools/fileTools.ts:23
+[src/tools/fileTools.ts:23](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L23)
+
+___
+
+### urlToBlob
+
+▸ **urlToBlob**(`url`): `Promise`\<`Blob`\>
+
+把 http url 转 blob
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+
+#### Returns
+
+`Promise`\<`Blob`\>
+
+#### Defined in
+
+[src/tools/fileTools.ts:74](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/fileTools.ts#L74)

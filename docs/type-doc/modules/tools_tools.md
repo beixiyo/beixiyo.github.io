@@ -24,6 +24,8 @@
 - [padNum](tools_tools.md#padnum)
 - [randomStr](tools_tools.md#randomstr)
 - [toCamel](tools_tools.md#tocamel)
+- [uniqueId](tools_tools.md#uniqueid)
+- [wait](tools_tools.md#wait)
 
 ## Functions
 
@@ -45,7 +47,7 @@
 
 #### Defined in
 
-tools/tools.ts:11
+[src/tools/tools.ts:18](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L18)
 
 ___
 
@@ -61,7 +63,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:172
+[src/tools/tools.ts:186](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L186)
 
 ___
 
@@ -69,8 +71,8 @@ ___
 
 ▸ **cutStr**(`str`, `len`, `placeholder?`): `string`
 
-截取字符串，默认补 `...` 到后面  
-如果长度小于等于 `placeholder` 补充字符串的长度，则直接截取
+- 截取字符串，默认补 `...` 到后面
+- 如果长度小于等于 `placeholder` 补充字符串的长度，则直接截取
 
 #### Parameters
 
@@ -78,7 +80,7 @@ ___
 | :------ | :------ | :------ | :------ |
 | `str` | `string` | `undefined` | 字符串 |
 | `len` | `number` | `undefined` | 需要截取的长度 |
-| `placeholder` | `string` | `'...'` | 补在后面的字符串 默认`...` |
+| `placeholder` | `string` | `'...'` | 补在后面的字符串，默认`...` |
 
 #### Returns
 
@@ -86,7 +88,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:101
+[src/tools/tools.ts:109](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L109)
 
 ___
 
@@ -115,7 +117,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:33
+[src/tools/tools.ts:40](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L40)
 
 ___
 
@@ -140,30 +142,30 @@ ___
 
 #### Defined in
 
-tools/tools.ts:54
+[src/tools/tools.ts:61](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L61)
 
 ___
 
 ### excludeKeys
 
-▸ **excludeKeys**\<`T`, `K`\>(`target`, `keys`): `Omit`\<`T`, `Extract`\<keyof `T`, `K`\>\>
+▸ **excludeKeys**\<`T`, `K`\>(`data`, `keys`): `Omit`\<`T`, `Extract`\<keyof `T`, `K`\>\>
 
-排除 `keys` 数组，返回一个对象
-例如：排除 `name`
+- 从 `keys` 数组中排除属性，返回一个对象
+- 例如：从对象中排除 `name` 属性，返回一个对象
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `T` |
+| `T` | extends `object` |
 | `K` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | `T` |
-| `keys` | `K`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `T` | 目标对象 |
+| `keys` | `K`[] | 需要提取的属性 |
 
 #### Returns
 
@@ -177,7 +179,7 @@ excludeKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:306
+[src/tools/tools.ts:354](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L354)
 
 ___
 
@@ -185,21 +187,21 @@ ___
 
 ▸ **excludeVals**\<`T`\>(`data`, `excludeArr`): `Partial`\<`T`\>
 
-排除值在 excludeArr，中的元素
-例如排除所有空字符串
+- 排除值在 excludeArr 中的元素，返回一个对象
+- 例如排除对象中所有空字符串
 
 #### Type parameters
 
-| Name |
-| :------ |
-| `T` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `T` |
-| `excludeArr` | `any`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `T` | 一个对象 |
+| `excludeArr` | `any`[] | 排除的值 |
 
 #### Returns
 
@@ -213,7 +215,7 @@ excludeVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:265
+[src/tools/tools.ts:303](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L303)
 
 ___
 
@@ -235,30 +237,30 @@ ___
 
 #### Defined in
 
-tools/tools.ts:13
+[src/tools/tools.ts:20](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L20)
 
 ___
 
 ### filterKeys
 
-▸ **filterKeys**\<`T`, `K`\>(`target`, `keys`): `Pick`\<`T`, `Extract`\<keyof `T`, `K`\>\>
+▸ **filterKeys**\<`T`, `K`\>(`data`, `keys`): `Pick`\<`T`, `Extract`\<keyof `T`, `K`\>\>
 
-提取 `keys` 数组，返回一个对象
-例如：提取 `name`
+- 从 `keys` 数组中提取属性，返回一个对象
+- 例如：从对象中提取 `name` 属性，返回一个对象
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `T` |
+| `T` | extends `object` |
 | `K` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | `T` |
-| `keys` | `K`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `T` | 目标对象 |
+| `keys` | `K`[] | 需要提取的属性 |
 
 #### Returns
 
@@ -272,7 +274,7 @@ filterKeys(data, ['name'])
 
 #### Defined in
 
-tools/tools.ts:284
+[src/tools/tools.ts:327](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L327)
 
 ___
 
@@ -280,8 +282,8 @@ ___
 
 ▸ **filterVals**\<`T`\>(`data`, `extractArr`): `Partial`\<`T`\>
 
-提取值在 extractArr，中的元素
-例如提取所有空字符串
+- 提取值在 extractArr 中的元素，返回一个对象
+- 例如提取对象中所有空字符串
 
 #### Type parameters
 
@@ -291,10 +293,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `T` |
-| `extractArr` | `any`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `T` | 一个对象 |
+| `extractArr` | `any`[] | 提取的值 |
 
 #### Returns
 
@@ -308,7 +310,7 @@ filterVals(data, [''])
 
 #### Defined in
 
-tools/tools.ts:246
+[src/tools/tools.ts:278](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L278)
 
 ___
 
@@ -331,11 +333,11 @@ ___
 
 `string`
 
-**iconfont icon-${name}**
+iconfont icon-${name}
 
 #### Defined in
 
-tools/tools.ts:236
+[src/tools/tools.ts:262](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L262)
 
 ___
 
@@ -359,7 +361,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:21
+[src/tools/tools.ts:28](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L28)
 
 ___
 
@@ -381,7 +383,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:5
+[src/tools/tools.ts:12](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L12)
 
 ___
 
@@ -411,7 +413,7 @@ numFixed(1.335) => 1.34
 
 #### Defined in
 
-tools/tools.ts:222
+[src/tools/tools.ts:248](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L248)
 
 ___
 
@@ -419,9 +421,9 @@ ___
 
 ▸ **padEmptyObj**\<`T`\>(`data`, `config?`): `T`
 
-把对象的空值转为指定字符串，默认 `--`  
-包含 空字符串、空格、null、undefined 等  
-默认不包含数值 0，可通过配置修改
+- 把对象的空值转为指定字符串，默认 `--`，返回一个对象
+- 空值包含 **空字符串、空格、null、undefined** 
+- 默认不包含数值 0，可通过配置修改
 
 #### Type parameters
 
@@ -433,7 +435,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `data` | `T` | - |
+| `data` | `T` | 需要转换的对象 |
 | `config?` | `Object` | - |
 | `config.ignoreNum?` | `boolean` | 忽略数字 0，默认 true |
 | `config.padStr?` | `string` | 要填补的字符串，默认 -- |
@@ -444,7 +446,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:119
+[src/tools/tools.ts:129](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L129)
 
 ___
 
@@ -459,8 +461,8 @@ ___
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `num` | `string` \| `number` | `undefined` | 数字 |
-| `precision` | `number` | `2` | 精度长度 默认`2` |
-| `placeholder` | `string` | `'0'` | 补齐内容 默认`0` |
+| `precision` | `number` | `2` | 精度长度，默认 `2` |
+| `placeholder` | `string` | `'0'` | 补齐内容，默认 `0` |
 
 #### Returns
 
@@ -468,9 +470,17 @@ ___
 
 数字字符串
 
+**`Example`**
+
+```ts
+padNum(1) => '1.00'
+padNum(1, 3) => '1.000')
+padNum(1, 3, '1') => '1.111'
+```
+
 #### Defined in
 
-tools/tools.ts:198
+[src/tools/tools.ts:222](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L222)
 
 ___
 
@@ -486,7 +496,7 @@ ___
 
 #### Defined in
 
-tools/tools.ts:8
+[src/tools/tools.ts:15](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L15)
 
 ___
 
@@ -516,4 +526,48 @@ toCamel('test/a', '/') => 'testA'
 
 #### Defined in
 
-tools/tools.ts:163
+[src/tools/tools.ts:177](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L177)
+
+___
+
+### uniqueId
+
+▸ **uniqueId**(): `number`
+
+获取自增唯一 ID
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/tools/tools.ts:9](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L9)
+
+___
+
+### wait
+
+▸ **wait**(`durationMS?`): `Promise`\<`unknown`\>
+
+等待指定时间后返回 Promise
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `durationMS` | `number` | `1000` | 等待时间，默认 1000 毫秒 |
+
+#### Returns
+
+`Promise`\<`unknown`\>
+
+**`Example`**
+
+```ts
+await wait(2000)
+```
+
+#### Defined in
+
+[src/tools/tools.ts:381](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/tools.ts#L381)

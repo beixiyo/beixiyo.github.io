@@ -70,13 +70,13 @@ ws.onmessage(() => { ... })
 
 #### Defined in
 
-net/WS.ts:55
+[src/net/WS.ts:59](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L59)
 
 ## Properties
 
 ### customId
 
-• **customId**: `string` = `'__WS_ID__'`
+• **customId**: `undefined` \| ``null`` \| `string` = `'__WS_ID__'`
 
 自定义 id 名称，标识是自己发送的消息，不会通过 onmessage 接收自己的消息
 
@@ -88,14 +88,14 @@ net/WS.ts:55
 
 ```ts
 {
-     *      __WS_ID__: Date.now().toString(),
-     *      message: '消息内容'
-     * }
+     __WS_ID__: Date.now().toString(),
+     message: '消息内容'
+}
 ```
 
 #### Defined in
 
-net/WS.ts:42
+[src/net/WS.ts:44](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L44)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:21
+[src/net/WS.ts:21](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L21)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:16
+[src/net/WS.ts:16](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L16)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:19
+[src/net/WS.ts:19](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L19)
 
 ## Methods
 
@@ -145,7 +145,7 @@ net/WS.ts:19
 
 #### Defined in
 
-net/WS.ts:110
+[src/net/WS.ts:114](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L114)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:92
+[src/net/WS.ts:96](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L96)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:36
+[src/channel/EventBus.ts:36](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L36)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `eventName?` | `string` \| `number` \| `symbol` | 空字符或者不传代表重置所有 |
+| `eventName?` | `string` \| `number` \| `symbol` | 不传代表重置所有 |
 | `func?` | `Function` | 要取关的函数，为空取关该事件的所有函数 |
 
 #### Returns
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:53
+[src/channel/EventBus.ts:53](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L53)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:18
+[src/channel/EventBus.ts:18](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L18)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-channel/EventBus.ts:27
+[src/channel/EventBus.ts:27](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/EventBus.ts#L27)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:68
+[src/net/WS.ts:72](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L72)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:71
+[src/net/WS.ts:75](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L75)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:65
+[src/net/WS.ts:69](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L69)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-net/WS.ts:62
+[src/net/WS.ts:66](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L66)
 
 ___
 
@@ -383,7 +383,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` \| `ArrayBufferLike` \| `Blob` \| `ArrayBufferView` |
+| `message` | `string` \| `Blob` \| `ArrayBufferLike` \| `ArrayBufferView` |
 
 #### Returns
 
@@ -391,4 +391,4 @@ ___
 
 #### Defined in
 
-net/WS.ts:75
+[src/net/WS.ts:79](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L79)

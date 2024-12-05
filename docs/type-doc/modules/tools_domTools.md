@@ -10,8 +10,6 @@
 - [adaptPx](tools_domTools.md#adaptpx)
 - [copyToClipboard](tools_domTools.md#copytoclipboard)
 - [debounce](tools_domTools.md#debounce)
-- [doubleKeyDown](tools_domTools.md#doublekeydown)
-- [fullScreen](tools_domTools.md#fullscreen)
 - [getAllStyle](tools_domTools.md#getallstyle)
 - [getImg](tools_domTools.md#getimg)
 - [getLocalStorage](tools_domTools.md#getlocalstorage)
@@ -21,11 +19,12 @@
 - [getWinWidth](tools_domTools.md#getwinwidth)
 - [handleCssUnit](tools_domTools.md#handlecssunit)
 - [isDarkMode](tools_domTools.md#isdarkmode)
+- [isMobile](tools_domTools.md#ismobile)
 - [isToBottom](tools_domTools.md#istobottom)
-- [judgeImgLoad](tools_domTools.md#judgeimgload)
 - [matchProtocol](tools_domTools.md#matchprotocol)
 - [print](tools_domTools.md#print)
 - [pxToVw](tools_domTools.md#pxtovw)
+- [rafThrottle](tools_domTools.md#rafthrottle)
 - [setLocalStorage](tools_domTools.md#setlocalstorage)
 - [setParentOverflow](tools_domTools.md#setparentoverflow)
 - [throttle](tools_domTools.md#throttle)
@@ -34,7 +33,7 @@
 
 ### HTMLToStr
 
-▸ **HTMLToStr**(`HTMLStr`): `string`
+▸ **HTMLToStr**(`HTMLStr`): ``null`` \| `string`
 
 解析出`HTML`的所有字符串
 
@@ -46,11 +45,11 @@
 
 #### Returns
 
-`string`
+``null`` \| `string`
 
 #### Defined in
 
-tools/domTools.ts:332
+[src/tools/domTools.ts:286](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L286)
 
 ___
 
@@ -74,7 +73,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:35
+[src/tools/domTools.ts:36](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L36)
 
 ___
 
@@ -96,13 +95,13 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:150
+[src/tools/domTools.ts:206](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L206)
 
 ___
 
 ### debounce
 
-▸ **debounce**\<`R`, `T`, `P`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `void`
+▸ **debounce**\<`P`\>(`fn`, `delay?`): (`this`: `any`, ...`args`: `P`) => `void`
 
 防抖
 
@@ -110,15 +109,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `R` | `R` |
-| `T` | `T` |
 | `P` | extends `any`[] |
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` | - |
+| `fn` | (...`args`: `P`) => `any` | `undefined` | - |
 | `delay` | `number` | `200` | 延迟时间（ms），@default 200 |
 
 #### Returns
@@ -131,7 +128,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `T` |
+| `this` | `any` |
 | `...args` | `P` |
 
 ##### Returns
@@ -140,95 +137,29 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:118
-
-___
-
-### doubleKeyDown
-
-▸ **doubleKeyDown**\<`T`, `P`, `R`\>(`code`, `fn`, `gap?`): (`e`: `KeyboardEvent`) => `R`
-
-返回一个双击键盘事件
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-| `P` |
-| `R` |
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `code` | `string` | `undefined` | 上下左右 |
-| `fn` | (`this`: `T`, ...`args`: `P`[]) => `R` | `undefined` | 双击后执行函数 |
-| `gap` | `number` | `150` | 间隔时间 |
-
-#### Returns
-
-`fn`
-
-▸ (`e`): `R`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | `KeyboardEvent` |
-
-##### Returns
-
-`R`
-
-#### Defined in
-
-tools/domTools.ts:260
-
-___
-
-### fullScreen
-
-▸ **fullScreen**(`dom?`): `void`
-
-全屏 若已全屏 则退出全屏
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `dom?` | `HTMLElement` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-tools/domTools.ts:295
+[src/tools/domTools.ts:139](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L139)
 
 ___
 
 ### getAllStyle
 
-▸ **getAllStyle**(): `Promise`\<`string`\>
+▸ **getAllStyle**(): `Promise`\<`undefined` \| `string`\>
 
 获取所有样式表
 
 #### Returns
 
-`Promise`\<`string`\>
+`Promise`\<`undefined` \| `string`\>
 
 #### Defined in
 
-tools/domTools.ts:160
+[src/tools/domTools.ts:216](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L216)
 
 ___
 
 ### getImg
 
-▸ **getImg**(`src`): `Promise`\<``false`` \| `HTMLImageElement`\>
+▸ **getImg**(`src`, `setImg?`): `Promise`\<``false`` \| `HTMLImageElement`\>
 
 判断图片的 src 是否可用，可用则返回图片
 
@@ -237,6 +168,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `src` | `string` | 图片 |
+| `setImg?` | (`img`: `HTMLImageElement`) => `void` | 图片加载前执行的回调函数 |
 
 #### Returns
 
@@ -244,15 +176,16 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:243
+[src/tools/domTools.ts:102](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L102)
 
 ___
 
 ### getLocalStorage
 
-▸ **getLocalStorage**\<`T`\>(`key`): `T` \| ``null``
+▸ **getLocalStorage**\<`T`\>(`key`, `autoParseJSON?`): `T` \| ``null``
 
-获取 LocalStorage，无需手动解析
+获取 LocalStorage，默认自动解析 JSON。
+### 'undefined' 字符串会被转成 null
 
 #### Type parameters
 
@@ -262,9 +195,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `key` | `string` | `undefined` | - |
+| `autoParseJSON` | `boolean` | `true` | 是否自动解析 JSON，默认 true |
 
 #### Returns
 
@@ -272,23 +206,23 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:137
+[src/tools/domTools.ts:190](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L190)
 
 ___
 
 ### getSelectedText
 
-▸ **getSelectedText**(): `string`
+▸ **getSelectedText**(): `undefined` \| `string`
 
 获取选中的文本
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 #### Defined in
 
-tools/domTools.ts:147
+[src/tools/domTools.ts:203](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L203)
 
 ___
 
@@ -312,7 +246,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:86
+[src/tools/domTools.ts:87](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L87)
 
 ___
 
@@ -328,7 +262,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:15
+[src/tools/domTools.ts:15](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L15)
 
 ___
 
@@ -344,7 +278,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:7
+[src/tools/domTools.ts:7](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L7)
 
 ___
 
@@ -366,7 +300,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:53
+[src/tools/domTools.ts:54](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L54)
 
 ___
 
@@ -382,7 +316,25 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:153
+[src/tools/domTools.ts:209](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L209)
+
+___
+
+### isMobile
+
+▸ **isMobile**(): `boolean`
+
+正则匹配移动设备 UA
+
+#### Returns
+
+`boolean`
+
+是否为移动设备
+
+#### Defined in
+
+[src/tools/domTools.ts:296](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L296)
 
 ___
 
@@ -398,31 +350,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:156
-
-___
-
-### judgeImgLoad
-
-▸ **judgeImgLoad**(`el?`): `Promise`\<`boolean`\>
-
-判断页面所有图片是否加载完成
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `el` | `Document` | `document` | 要判断的元素 默认 document |
-
-#### Returns
-
-`Promise`\<`boolean`\>
-
-是否加载完成
-
-#### Defined in
-
-tools/domTools.ts:222
+[src/tools/domTools.ts:212](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L212)
 
 ___
 
@@ -430,7 +358,7 @@ ___
 
 ▸ **matchProtocol**(`url`): `string`
 
-把`http`协议转换成当前站的
+把 `http` 协议转换成当前协议
 
 #### Parameters
 
@@ -444,7 +372,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:24
+[src/tools/domTools.ts:25](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L25)
 
 ___
 
@@ -452,14 +380,14 @@ ___
 
 ▸ **print**(`el`, `styleStr`, `href?`): `void`
 
-打印 必须启动一个服务器才能用; ***建议使用事件交互，如按钮点击，否则可能打开多个窗口***
+打印 必须启动一个服务器才能用; **建议使用事件交互，如按钮点击，否则可能打开多个窗口**
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `el` | `HTMLElement` | 要打印的元素 |
-| `styleStr` | `string` | 样式 建议使用`getAllStyle`函数，可不传 |
+| `styleStr` | `undefined` \| `string` | 样式 建议使用`getAllStyle`函数，可不传 |
 | `href?` | `string` | 打开的链接 默认使用`location.href` |
 
 #### Returns
@@ -468,18 +396,18 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:184
+[src/tools/domTools.ts:240](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L240)
 
 ▸ **print**(`elStr`, `styleStr`, `href?`): `void`
 
-打印 必须启动一个服务器才能用; ***建议使用事件交互，如按钮点击，否则可能打开多个窗口***
+打印 必须启动一个服务器才能用; **建议使用事件交互，如按钮点击，否则可能打开多个窗口**
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `elStr` | `string` | - |
-| `styleStr` | `string` | 样式 建议使用`getAllStyle`函数，可不传 |
+| `styleStr` | `undefined` \| `string` | 样式 建议使用`getAllStyle`函数，可不传 |
 | `href?` | `string` | 打开的链接 默认使用`location.href` |
 
 #### Returns
@@ -488,7 +416,7 @@ tools/domTools.ts:184
 
 #### Defined in
 
-tools/domTools.ts:184
+[src/tools/domTools.ts:240](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L240)
 
 ___
 
@@ -514,22 +442,64 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:67
+[src/tools/domTools.ts:68](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L68)
+
+___
+
+### rafThrottle
+
+▸ **rafThrottle**\<`P`\>(`fn`): (`this`: `any`, ...`args`: `P`) => `void`
+
+用 requestAnimationFrame 节流，只有一帧内执行完毕，才会继续执行
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `P` | extends `any`[] |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fn` | (...`args`: `P`) => `any` | 可以是异步函数 |
+
+#### Returns
+
+`fn`
+
+▸ (`this`, `...args`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `this` | `any` |
+| `...args` | `P` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[src/tools/domTools.ts:157](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L157)
 
 ___
 
 ### setLocalStorage
 
-▸ **setLocalStorage**(`key`, `value`): `void`
+▸ **setLocalStorage**(`key`, `value`, `autoToJSON?`): `void`
 
-设置 LocalStorage，无需手动转 JSON
+设置 LocalStorage，默认自动转 JSON
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
-| `value` | `any` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `key` | `string` | `undefined` | - |
+| `value` | `any` | `undefined` | - |
+| `autoToJSON` | `boolean` | `true` | 是否自动转 JSON，默认 true |
 
 #### Returns
 
@@ -537,7 +507,7 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:133
+[src/tools/domTools.ts:177](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L177)
 
 ___
 
@@ -545,7 +515,7 @@ ___
 
 ▸ **setParentOverflow**(`el`): `void`
 
-检查并设置父元素的`overflow: hidden`
+检查并设置父元素的 `overflow: hidden`
 
 #### Parameters
 
@@ -559,13 +529,13 @@ ___
 
 #### Defined in
 
-tools/domTools.ts:284
+[src/tools/domTools.ts:276](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L276)
 
 ___
 
 ### throttle
 
-▸ **throttle**\<`R`, `T`, `P`\>(`fn`, `delay?`): (`this`: `T`, ...`args`: `P`) => `R`
+▸ **throttle**\<`P`\>(`fn`, `delay?`): (`this`: `any`, ...`args`: `P`) => `any`
 
 节流
 
@@ -573,34 +543,32 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `R` | `R` |
-| `T` | `T` |
 | `P` | extends `any`[] |
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `fn` | (`this`: `T`, ...`args`: `P`) => `R` | `undefined` | - |
+| `fn` | (...`args`: `P`) => `any` | `undefined` | - |
 | `delay` | `number` | `200` | 延迟时间（ms），@default 200 |
 
 #### Returns
 
 `fn`
 
-▸ (`this`, `...args`): `R`
+▸ (`this`, `...args`): `any`
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `T` |
+| `this` | `any` |
 | `...args` | `P` |
 
 ##### Returns
 
-`R`
+`any`
 
 #### Defined in
 
-tools/domTools.ts:99
+[src/tools/domTools.ts:120](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/domTools.ts#L120)

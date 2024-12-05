@@ -28,4 +28,4 @@
 
 #### Defined in
 
-plugins/autoUpdate.ts:6
+[src/plugins/autoUpdate.ts:6](https://github.com/beixiyo/jl-tool/blob/45e2229/src/plugins/autoUpdate.ts#L6)

@@ -48,7 +48,7 @@
 
 #### Defined in
 
-channel/Observe.ts:8
+[src/channel/Observe.ts:8](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/Observe.ts#L8)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-channel/Observe.ts:21
+[src/channel/Observe.ts:21](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/Observe.ts#L21)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 #### Defined in
 
-channel/Observe.ts:13
+[src/channel/Observe.ts:13](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/Observe.ts#L13)

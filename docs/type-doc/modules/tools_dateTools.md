@@ -33,7 +33,7 @@
 
 #### Defined in
 
-tools/dateTools.ts:198
+[src/tools/dateTools.ts:213](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L213)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:221
+[src/tools/dateTools.ts:236](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L236)
 
 ## Functions
 
@@ -74,7 +74,7 @@ tools/dateTools.ts:221
 
 #### Defined in
 
-tools/dateTools.ts:36
+[src/tools/dateTools.ts:36](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L36)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:8
+[src/tools/dateTools.ts:8](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L8)
 
 ___
 
@@ -131,7 +131,7 @@ console.log(formatDate((dateInfo) => {
 
 #### Defined in
 
-tools/dateTools.ts:146
+[src/tools/dateTools.ts:152](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L152)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:18
+[src/tools/dateTools.ts:18](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L18)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:59
+[src/tools/dateTools.ts:59](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L59)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:75
+[src/tools/dateTools.ts:75](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L75)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:48
+[src/tools/dateTools.ts:48](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L48)
 
 ___
 
@@ -245,13 +245,13 @@ ___
 
 #### Defined in
 
-tools/dateTools.ts:15
+[src/tools/dateTools.ts:15](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L15)
 
 ___
 
 ### timeGap
 
-▸ **timeGap**(`date?`, `opts?`): `string`
+▸ **timeGap**(`date?`, `opts?`): `undefined` \| `string`
 
 描述传入日期相对于当前时间的口头说法  
 例如：刚刚、1分钟前、1小时前、1天前、1个月前、1年前...
@@ -265,7 +265,7 @@ ___
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 **`Example`**
 
@@ -275,4 +275,4 @@ console.log(timeGap()) // 刚刚
 
 #### Defined in
 
-tools/dateTools.ts:93
+[src/tools/dateTools.ts:95](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/dateTools.ts#L95)

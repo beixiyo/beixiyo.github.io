@@ -7,6 +7,7 @@
 ### Variables
 
 - [DEG\_1](shared.md#deg_1)
+- [DEG\_15](shared.md#deg_15)
 - [DEG\_180](shared.md#deg_180)
 - [DEG\_270](shared.md#deg_270)
 - [DEG\_30](shared.md#deg_30)
@@ -39,7 +40,19 @@ Math.PI / 180
 
 #### Defined in
 
-constants/deg.ts:2
+[src/constants/deg.ts:2](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L2)
+
+___
+
+### DEG\_15
+
+• `Const` **DEG\_15**: `number`
+
+Math.PI / 180 * 15
+
+#### Defined in
+
+[src/constants/deg.ts:5](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L5)
 
 ___
 
@@ -47,9 +60,11 @@ ___
 
 • `Const` **DEG\_180**: `number`
 
+Math.PI
+
 #### Defined in
 
-constants/deg.ts:8
+[src/constants/deg.ts:17](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L17)
 
 ___
 
@@ -57,9 +72,11 @@ ___
 
 • `Const` **DEG\_270**: `number`
 
+Math.PI / 180 * 270
+
 #### Defined in
 
-constants/deg.ts:9
+[src/constants/deg.ts:20](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L20)
 
 ___
 
@@ -67,9 +84,11 @@ ___
 
 • `Const` **DEG\_30**: `number`
 
+Math.PI / 180 * 30
+
 #### Defined in
 
-constants/deg.ts:3
+[src/constants/deg.ts:7](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L7)
 
 ___
 
@@ -77,9 +96,11 @@ ___
 
 • `Const` **DEG\_360**: `number`
 
+Math.PI * 2
+
 #### Defined in
 
-constants/deg.ts:10
+[src/constants/deg.ts:22](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L22)
 
 ___
 
@@ -87,9 +108,11 @@ ___
 
 • `Const` **DEG\_45**: `number`
 
+Math.PI / 180 * 45
+
 #### Defined in
 
-constants/deg.ts:4
+[src/constants/deg.ts:10](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L10)
 
 ___
 
@@ -97,9 +120,11 @@ ___
 
 • `Const` **DEG\_60**: `number`
 
+Math.PI / 180 * 60
+
 #### Defined in
 
-constants/deg.ts:5
+[src/constants/deg.ts:12](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L12)
 
 ___
 
@@ -107,9 +132,11 @@ ___
 
 • `Const` **DEG\_90**: `number`
 
+Math.PI / 180 * 90
+
 #### Defined in
 
-constants/deg.ts:7
+[src/constants/deg.ts:15](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/deg.ts#L15)
 
 ___
 
@@ -121,7 +148,7 @@ ___
 
 #### Defined in
 
-constants/tool.ts:22
+[src/constants/tool.ts:27](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/tool.ts#L27)
 
 ___
 
@@ -144,7 +171,7 @@ ___
 
 #### Defined in
 
-constants/tool.ts:2
+[src/constants/tool.ts:2](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/tool.ts#L2)
 
 ___
 
@@ -156,7 +183,7 @@ ___
 
 #### Defined in
 
-constants/tool.ts:24
+[src/constants/tool.ts:29](https://github.com/beixiyo/jl-tool/blob/45e2229/src/constants/tool.ts#L29)
 
 ## Functions
 
@@ -182,7 +209,7 @@ data is T[]
 
 #### Defined in
 
-shared/is.ts:28
+[src/shared/is.ts:32](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L32)
 
 ___
 
@@ -202,7 +229,7 @@ data is boolean
 
 #### Defined in
 
-shared/is.ts:24
+[src/shared/is.ts:24](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L24)
 
 ___
 
@@ -222,7 +249,7 @@ data is Function
 
 #### Defined in
 
-shared/is.ts:26
+[src/shared/is.ts:26](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L26)
 
 ___
 
@@ -242,13 +269,15 @@ data is number
 
 #### Defined in
 
-shared/is.ts:23
+[src/shared/is.ts:23](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L23)
 
 ___
 
 ### isObj
 
 ▸ **isObj**(`data`): data is object
+
+typeof data === 'object' && data !== null
 
 #### Parameters
 
@@ -262,7 +291,7 @@ data is object
 
 #### Defined in
 
-shared/is.ts:27
+[src/shared/is.ts:31](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L31)
 
 ___
 
@@ -285,7 +314,7 @@ ___
 
 #### Defined in
 
-shared/is.ts:6
+[src/shared/is.ts:6](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L6)
 
 ___
 
@@ -308,7 +337,7 @@ Object.is
 
 #### Defined in
 
-shared/is.ts:31
+[src/shared/is.ts:35](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L35)
 
 ___
 
@@ -328,4 +357,4 @@ data is string
 
 #### Defined in
 
-shared/is.ts:22
+[src/shared/is.ts:22](https://github.com/beixiyo/jl-tool/blob/45e2229/src/shared/is.ts#L22)

@@ -37,7 +37,7 @@
 
 #### Defined in
 
-webApi/tools.ts:6
+[src/webApi/tools.ts:6](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/tools.ts#L6)
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 #### Defined in
 
-webApi/tools.ts:33
+[src/webApi/tools.ts:33](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/tools.ts#L33)

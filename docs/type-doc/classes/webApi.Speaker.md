@@ -57,7 +57,7 @@ speaker.play()
 
 #### Defined in
 
-webApi/Speaker.ts:21
+[src/webApi/Speaker.ts:23](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L23)
 
 ## Properties
 
@@ -69,7 +69,7 @@ webApi/Speaker.ts:21
 
 #### Defined in
 
-webApi/Speaker.ts:13
+[src/webApi/Speaker.ts:15](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L15)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:11
+[src/webApi/Speaker.ts:13](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L13)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:9
+[src/webApi/Speaker.ts:11](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L11)
 
 ## Methods
 
@@ -109,7 +109,7 @@ webApi/Speaker.ts:9
 
 #### Defined in
 
-webApi/Speaker.ts:53
+[src/webApi/Speaker.ts:55](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L55)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:38
+[src/webApi/Speaker.ts:40](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L40)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:59
+[src/webApi/Speaker.ts:61](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L61)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:92
+[src/webApi/Speaker.ts:94](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L94)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:86
+[src/webApi/Speaker.ts:88](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L88)
 
 ___
 
@@ -213,13 +213,13 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:65
+[src/webApi/Speaker.ts:67](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L67)
 
 ___
 
 ### setVoice
 
-▸ **setVoice**(`index`): [`Speaker`](webApi.Speaker.md)
+▸ **setVoice**(`index`): `undefined` \| [`Speaker`](webApi.Speaker.md)
 
 设置声音类型
 
@@ -231,11 +231,11 @@ ___
 
 #### Returns
 
-[`Speaker`](webApi.Speaker.md)
+`undefined` \| [`Speaker`](webApi.Speaker.md)
 
 #### Defined in
 
-webApi/Speaker.ts:77
+[src/webApi/Speaker.ts:79](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L79)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:71
+[src/webApi/Speaker.ts:73](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L73)
 
 ___
 
@@ -273,4 +273,4 @@ ___
 
 #### Defined in
 
-webApi/Speaker.ts:47
+[src/webApi/Speaker.ts:49](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Speaker.ts#L49)

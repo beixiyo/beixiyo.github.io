@@ -50,7 +50,7 @@ recorder.start()
 
 #### Defined in
 
-webApi/Recorder.ts:21
+[src/webApi/Recorder.ts:23](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L23)
 
 ## Properties
 
@@ -62,7 +62,7 @@ webApi/Recorder.ts:21
 
 #### Defined in
 
-webApi/Recorder.ts:10
+[src/webApi/Recorder.ts:12](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L12)
 
 ___
 
@@ -74,21 +74,21 @@ ___
 
 #### Defined in
 
-webApi/Recorder.ts:12
+[src/webApi/Recorder.ts:14](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L14)
 
 ## Methods
 
 ### init
 
-▸ **init**(): `Promise`\<`string`\>
+▸ **init**(): `Promise`\<`undefined` \| `string`\>
 
 #### Returns
 
-`Promise`\<`string`\>
+`Promise`\<`undefined` \| `string`\>
 
 #### Defined in
 
-webApi/Recorder.ts:25
+[src/webApi/Recorder.ts:27](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L27)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-webApi/Recorder.ts:73
+[src/webApi/Recorder.ts:75](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L75)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-webApi/Recorder.ts:52
+[src/webApi/Recorder.ts:54](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L54)
 
 ___
 
@@ -142,4 +142,4 @@ ___
 
 #### Defined in
 
-webApi/Recorder.ts:65
+[src/webApi/Recorder.ts:67](https://github.com/beixiyo/jl-tool/blob/45e2229/src/webApi/Recorder.ts#L67)

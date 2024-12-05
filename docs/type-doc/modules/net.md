@@ -45,7 +45,7 @@
 
 #### Defined in
 
-net/WS.ts:256
+[src/net/WS.ts:260](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/WS.ts#L260)
 
 ## Functions
 
@@ -74,7 +74,7 @@ net/WS.ts:256
 
 #### Defined in
 
-net/tool.ts:24
+[src/net/tool.ts:24](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/tool.ts#L24)
 
 ___
 
@@ -103,4 +103,4 @@ ___
 
 #### Defined in
 
-net/tool.ts:6
+[src/net/tool.ts:6](https://github.com/beixiyo/jl-tool/blob/45e2229/src/net/tool.ts#L6)

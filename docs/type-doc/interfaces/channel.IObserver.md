@@ -28,4 +28,4 @@
 
 #### Defined in
 
-channel/Observe.ts:28
+[src/channel/Observe.ts:28](https://github.com/beixiyo/jl-tool/blob/45e2229/src/channel/Observe.ts#L28)

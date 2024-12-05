@@ -7,11 +7,11 @@
 ### Type Aliases
 
 - [CutImgOpts](canvas.md#cutimgopts)
+- [HandleImgReturn](canvas.md#handleimgreturn)
 - [Pixel](canvas.md#pixel)
 
 ### Functions
 
-- [calcCoord](canvas.md#calccoord)
 - [compressImg](canvas.md#compressimg)
 - [createCvs](canvas.md#createcvs)
 - [cutImg](canvas.md#cutimg)
@@ -19,7 +19,6 @@
 - [getCvsImg](canvas.md#getcvsimg)
 - [getPixel](canvas.md#getpixel)
 - [parseImgData](canvas.md#parseimgdata)
-- [setElCrossOrigin](canvas.md#setelcrossorigin)
 
 ## Type Aliases
 
@@ -34,13 +33,31 @@
 | `height?` | `number` | - |
 | `mimeType?` | `string` | 图片的 MIME 格式 |
 | `quality?` | `number` | 图像质量，取值范围 0 ~ 1 |
+| `scaleX?` | `number` | - |
+| `scaleY?` | `number` | - |
 | `width?` | `number` | - |
 | `x?` | `number` | - |
 | `y?` | `number` | - |
 
 #### Defined in
 
-canvas/imgHandle.ts:99
+[src/canvas/imgHandle.ts:99](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/imgHandle.ts#L99)
+
+___
+
+### HandleImgReturn
+
+Ƭ **HandleImgReturn**\<`T`\>: `T` extends ``"blob"`` ? `Blob` : `string`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `TransferType` |
+
+#### Defined in
+
+[src/canvas/imgHandle.ts:94](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/imgHandle.ts#L94)
 
 ___
 
@@ -50,36 +67,13 @@ ___
 
 #### Defined in
 
-types/base.ts:8
+[src/types/base.ts:10](https://github.com/beixiyo/jl-tool/blob/45e2229/src/types/base.ts#L10)
 
 ## Functions
 
-### calcCoord
-
-▸ **calcCoord**(`r`, `deg`): `number`[]
-
-根据半径和角度获取坐标
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `r` | `number` | 半径 |
-| `deg` | `number` | 角度 |
-
-#### Returns
-
-`number`[]
-
-#### Defined in
-
-canvas/tools.ts:10
-
-___
-
 ### compressImg
 
-▸ **compressImg**\<`T`\>(`img`, `resType?`, `quality?`, `mimeType?`): `HandleImgReturn`\<`T`\>
+▸ **compressImg**\<`T`\>(`img`, `resType?`, `quality?`, `mimeType?`): `Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
 压缩图片
 
@@ -96,17 +90,17 @@ ___
 | `img` | `HTMLImageElement` | `undefined` | 图片 |
 | `resType` | `T` | `undefined` | 需要返回的文件格式，默认 `base64` |
 | `quality` | `number` | `.5` | 压缩质量，默认 0.5 |
-| `mimeType` | ``"image/jpeg"`` \| ``"image/webp"`` | `'image/webp'` | 图片类型，默认 `image/webp`。`image/jpeg \| image/webp` 才能压缩， |
+| `mimeType` | ``"image/jpeg"`` \| ``"image/webp"`` | `'image/webp'` | 图片类型，默认 `image/webp`。`image/jpeg \| image/webp` 才能压缩 |
 
 #### Returns
 
-`HandleImgReturn`\<`T`\>
+`Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
 base64 | blob
 
 #### Defined in
 
-canvas/imgHandle.ts:39
+[src/canvas/imgHandle.ts:47](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/imgHandle.ts#L47)
 
 ___
 
@@ -137,15 +131,15 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:24
+[src/canvas/tools.ts:11](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/tools.ts#L11)
 
 ___
 
 ### cutImg
 
-▸ **cutImg**\<`T`\>(`img`, `opts?`, `resType?`): `HandleImgReturn`\<`T`\>
+▸ **cutImg**\<`T`\>(`img`, `opts?`, `resType?`): `Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
-截取图片的一部分，返回 base64 | blob
+截取图片指定区域，可设置缩放，返回 base64 | blob
 
 #### Type parameters
 
@@ -163,11 +157,11 @@ ___
 
 #### Returns
 
-`HandleImgReturn`\<`T`\>
+`Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
 #### Defined in
 
-canvas/imgHandle.ts:11
+[src/canvas/imgHandle.ts:11](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/imgHandle.ts#L11)
 
 ___
 
@@ -192,13 +186,13 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:83
+[src/canvas/tools.ts:70](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/tools.ts#L70)
 
 ___
 
 ### getCvsImg
 
-▸ **getCvsImg**\<`T`\>(`cvs`, `resType?`, `mimeType?`, `quality?`): `HandleImgReturn`\<`T`\>
+▸ **getCvsImg**\<`T`\>(`cvs`, `resType?`, `mimeType?`, `quality?`): `Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
 把 canvas 上的图像转成 base64 | blob
 
@@ -219,11 +213,11 @@ ___
 
 #### Returns
 
-`HandleImgReturn`\<`T`\>
+`Promise`\<[`HandleImgReturn`](canvas.md#handleimgreturn)\<`T`\>\>
 
 #### Defined in
 
-canvas/imgHandle.ts:65
+[src/canvas/imgHandle.ts:66](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/imgHandle.ts#L66)
 
 ___
 
@@ -251,7 +245,7 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:42
+[src/canvas/tools.ts:29](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/tools.ts#L29)
 
 ___
 
@@ -276,26 +270,4 @@ ___
 
 #### Defined in
 
-canvas/tools.ts:66
-
-___
-
-### setElCrossOrigin
-
-▸ **setElCrossOrigin**(`el`): `void`
-
-设置元素的 crossOrigin 为 anonymous
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `el` | `HTMLElement` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-canvas/imgHandle.ts:54
+[src/canvas/tools.ts:53](https://github.com/beixiyo/jl-tool/blob/45e2229/src/canvas/tools.ts#L53)

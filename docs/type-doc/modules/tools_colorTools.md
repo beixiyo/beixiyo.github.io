@@ -9,6 +9,7 @@
 - [colorAddOpacity](tools_colorTools.md#coloraddopacity)
 - [getColor](tools_colorTools.md#getcolor)
 - [getColorArr](tools_colorTools.md#getcolorarr)
+- [getColorInfo](tools_colorTools.md#getcolorinfo)
 - [hexColorToRaw](tools_colorTools.md#hexcolortoraw)
 - [hexToRGB](tools_colorTools.md#hextorgb)
 - [lightenColor](tools_colorTools.md#lightencolor)
@@ -37,7 +38,7 @@
 
 #### Defined in
 
-tools/colorTools.ts:125
+[src/tools/colorTools.ts:166](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L166)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:6
+[src/tools/colorTools.ts:47](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L47)
 
 ___
 
@@ -75,7 +76,46 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:11
+[src/tools/colorTools.ts:52](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L52)
+
+___
+
+### getColorInfo
+
+▸ **getColorInfo**(`color`): `Object`
+
+把颜色提取出 RGBA
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `color` | `string` |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+| `b` | `number` |
+| `g` | `number` |
+| `r` | `number` |
+
+**`Example`**
+
+```ts
+getColorInfo('rgba(0, 0, 0, 1)')
+getColorInfo('rgb(0, 0, 0)')
+
+getColorInfo('#fff')
+getColorInfo('#fff1')
+```
+
+#### Defined in
+
+[src/tools/colorTools.ts:16](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L16)
 
 ___
 
@@ -99,7 +139,7 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:22
+[src/tools/colorTools.ts:63](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L63)
 
 ___
 
@@ -121,7 +161,7 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:42
+[src/tools/colorTools.ts:83](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L83)
 
 ___
 
@@ -146,13 +186,13 @@ ___
 
 #### Defined in
 
-tools/colorTools.ts:92
+[src/tools/colorTools.ts:133](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L133)
 
 ___
 
 ### rgbToHex
 
-▸ **rgbToHex**(`color`): `string`
+▸ **rgbToHex**(`color`): `undefined` \| `string`
 
 RGB 转十六进制
 
@@ -164,8 +204,8 @@ RGB 转十六进制
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 #### Defined in
 
-tools/colorTools.ts:65
+[src/tools/colorTools.ts:106](https://github.com/beixiyo/jl-tool/blob/45e2229/src/tools/colorTools.ts#L106)
